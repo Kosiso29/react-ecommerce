@@ -46,48 +46,48 @@ const FollowONIG = () => {
 
         <Marquee pauseOnHover={true} speed={100} >
 
-          <ExternalLink href='https://www.instagram.com/reel/Ck6akcopA_F/' >
-            <img src={i1} className=' w-60 rounded-2xl   mrMl carouselIMg' />
+          <ExternalLink href='https://www.instagram.com/ojwale_solar2/' >
+            <img src={i1} className=' w-60 rounded-2xl   mrMl carouselIMg' alt=''/>
           </ExternalLink>
 
-          <ExternalLink href='https://www.instagram.com/reel/Ck9DOsWLEdw/'>
-            <img src={i2} className=' w-60 rounded-2xl  mrMl  carouselIMg' />
+          <ExternalLink href='https://www.instagram.com/ojwale_solar2/'>
+            <img src={i2} className=' w-60 rounded-2xl  mrMl  carouselIMg' alt=''/>
           </ExternalLink>
 
-          <ExternalLink href='https://www.instagram.com/reel/Ck_u9AjOJFh/'>
-            <img src={i3} className=' w-60 rounded-2xl   mrMl carouselIMg' />
+          <ExternalLink href='https://www.instagram.com/ojwale_solar2/'>
+            <img src={i3} className=' w-60 rounded-2xl   mrMl carouselIMg' alt=''/>
           </ExternalLink>
 
-          <ExternalLink href='https://www.instagram.com/reel/CkgnyuWu_u7/'>
-            <img src={i4} className=' w-60 rounded-2xl   mrMl carouselIMg' />
+          <ExternalLink href='https://www.instagram.com/ojwale_solar2/'>
+            <img src={i4} className=' w-60 rounded-2xl   mrMl carouselIMg' alt=''/>
           </ExternalLink>
 
-          <ExternalLink href='https://www.instagram.com/p/CkeOeuMvliW/'>
-            <img src={i5} className=' w-60 rounded-2xl  mrMl  carouselIMg' />
+          <ExternalLink href='https://www.instagram.com/ojwale_solar2/'>
+            <img src={i5} className=' w-60 rounded-2xl  mrMl  carouselIMg' alt=''/>
           </ExternalLink>
 
-          <ExternalLink href='https://www.instagram.com/reel/CkgnyuWu_u7/'>
-            <img src={i6} className=' w-60 rounded-2xl  mrMl  carouselIMg' />
+          <ExternalLink href='https://www.instagram.com/ojwale_solar2/'>
+            <img src={i6} className=' w-60 rounded-2xl  mrMl  carouselIMg' alt=''/>
           </ExternalLink>
 
-          <ExternalLink href='https://www.instagram.com/reel/Ckg4wazO9SQ/'>
-            <img src={i7} className=' w-60 rounded-2xl   mrMl carouselIMg' />
+          <ExternalLink href='https://www.instagram.com/ojwale_solar2/'>
+            <img src={i7} className=' w-60 rounded-2xl   mrMl carouselIMg' alt=''/>
           </ExternalLink>
 
-          <ExternalLink href='https://www.instagram.com/reel/CkjTteAMPaZ/'>
-            <img src={i8} className=' w-60 rounded-2xl   mrMl carouselIMg' />
+          <ExternalLink href='https://www.instagram.com/ojwale_solar2/'>
+            <img src={i8} className=' w-60 rounded-2xl   mrMl carouselIMg' alt=''/>
           </ExternalLink>
 
-          <ExternalLink href='https://www.instagram.com/reel/CklzQFcJW9a/'>
-            <img src={i9} className=' w-60 rounded-2xl  mrMl carouselIMg' />
+          <ExternalLink href='https://www.instagram.com/ojwale_solar2/'>
+            <img src={i9} className=' w-60 rounded-2xl  mrMl carouselIMg' alt=''/>
           </ExternalLink>
 
-          <ExternalLink href='https://www.instagram.com/reel/CkwQD6KO1WP/'>
-            <img src={i10} className=' w-60 rounded-2xl  mrMl  carouselIMg' />
+          <ExternalLink href='https://www.instagram.com/ojwale_solar2/'>
+            <img src={i10} className=' w-60 rounded-2xl  mrMl  carouselIMg'alt='' />
           </ExternalLink>
 
-          <ExternalLink href='https://www.instagram.com/reel/Ckg4wazO9SQ/'>
-            <img src={i11} className=' w-60 rounded-2xl  mrMl  carouselIMg' />
+          <ExternalLink href='https://www.instagram.com/ojwale_solar2/'>
+            <img src={i11} className=' w-60 rounded-2xl  mrMl  carouselIMg' alt='' />
           </ExternalLink>
 
         </Marquee>

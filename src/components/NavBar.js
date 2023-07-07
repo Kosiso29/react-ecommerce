@@ -66,7 +66,7 @@ const NavBar = () => {
                 <nav class="navbar" role="navigation" aria-label="menu">
 
                     <Link to="/">
-                        <img src={logo} className=" ml-32" />
+                        <img src={logo} className="ml-32 img" />
                     </Link>
 
                     <ul class="menuNav">

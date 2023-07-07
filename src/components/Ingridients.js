@@ -1,5 +1,5 @@
-import React from 'react'
-import "../styles/Ingridients.css"
+import React, { useEffect, useState } from 'react';
+import "../styles/Ingridients.css";
 
 import ing1 from "../assets/ing1.png";
 import ing2 from "../assets/ing2.png";
@@ -8,44 +8,64 @@ import ing4 from "../assets/ing4.png";
 import ing5 from "../assets/ing5.png";
 import ing6 from "../assets/ing6.png";
 
-
 const Ingridients = () => {
-    return (
-        <div className='ingMainParent'>
-            <p className=' text-4xl ogtext font-medium text-center mb-16'> OUR INGRIDENTS </p>
+  const [categories, setCategories] = useState([]);
 
-            <div className='ingImgHold flex flex-row gap-36 justify-center'>
-                <img src={ing1} className="zoom2" />
-                <img src={ing2} className="zoom2" />
-                <img src={ing3} className="zoom2" />
-                <img src={ing4} className="zoom2" />
-                <img src={ing5} className="zoom2" />
-                <img src={ing6} className="zoom2" />
-            </div>
+  useEffect(() => {
+    async function getData() {
+      try {
+        const response = await fetch("http://solarsales.pythonanywhere.com/products/category/");
+        const data = await response.json();
+        setCategories(data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    }
 
-            <div className='ingTextHold flex flex-row gap-32 justify-center'>
-                <p>All Natural</p>
-                <p> Vegetables </p>
-                <p> Fruits </p>
-                <p> Vegan </p>
-                <p> Essential Oils</p>
-                <p> Botanical </p>
+    getData();
+  }, []);
 
-            </div>
+  return (
+    <div className='ingMainParent'>
+      <p className='text-4xl ogtext font-medium text-center mb-16'>OUR PRODUCTS</p>
 
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-
-
-
+      <div className='ingImgHold flex flex-row gap-36 justify-center'>
+        <div className="imageWithText">
+          <img src={ing1} className="zoom2" alt=''/>
+          <p>{categories.length > 0 && categories[0].name}</p>
         </div>
-    )
+        <div className="imageWithText">
+          <img src={ing2} className="zoom2" alt=''/>
+          <p>{categories.length > 1 && categories[1].name}</p>
+        </div>
+        <div className="imageWithText">
+          <img src={ing3} className="zoom2" alt=''/>
+          <p>{categories.length > 2 && categories[2].name}</p>
+        </div>
+        <div className="imageWithText">
+          <img src={ing4} className="zoom2" alt=''/>
+          <p>{categories.length > 3 && categories[3].name}</p>
+        </div>
+        <div className="imageWithText">
+          <img src={ing5} className="zoom2" alt=''/>
+          <p>{categories.length > 4 && categories[4].name}</p>
+        </div>
+        <div className="imageWithText">
+          <img src={ing6} className="zoom2" alt=''/>
+          <p>{categories.length > 5 && categories[5].name}</p>
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+  );
 }
 
-export default Ingridients
+export default Ingridients;

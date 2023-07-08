@@ -13,8 +13,10 @@ const Products = () => {
             fetch(`https://solarsales.pythonanywhere.com/products/?page=${pageNumber || activePageNumber}`)
                 .then(response => response.json())
                 .then(data => {
-                    const newPagesArray = Array.from({length: Math.ceil(data.count / data.results.length)}, (_, i) => i + 1)
-                    setPagesArray(newPagesArray)
+                    if (pagesArray.length === 0) {
+                        const newPagesArray = Array.from({length: Math.ceil(data.count / data.results.length)}, (_, i) => i + 1)
+                        setPagesArray(newPagesArray)
+                    }
                     setState(data)
                     resolve()
             }).catch(() => reject())
@@ -52,7 +54,7 @@ const Products = () => {
                             <Pagination.Item onClick={() => { getData(pageNumber) }} active={pageNumber === activePageNumber}>{pageNumber}</Pagination.Item>
                         ))
                     }
-                <Pagination.Next onClick={() => { getData(activePageNumber + 1) }} disabled={activePageNumber === 2} />
+                <Pagination.Next onClick={() => { getData(activePageNumber + 1) }} disabled={activePageNumber === pagesArray.length} />
                 </Pagination>
             </div>           
         </div>

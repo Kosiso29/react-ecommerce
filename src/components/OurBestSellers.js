@@ -55,6 +55,7 @@ const OurBestSellers = (props) => {
                                 status: 'success',
                                 duration: 1500,
                                 isClosable: true,
+                                position: 'top-right'
                             })
                         }>
                             <button className="btn btn-primary" onClick={addItemToCartHandler}>Buy Now</button>

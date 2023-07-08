@@ -63,7 +63,7 @@ const NavBar = () => {
 
             <header class="banner" role="banner">
 
-                <nav class="navbar" role="navigation" aria-label="menu">
+                <nav class="navigationBar" role="navigation" aria-label="menu">
 
                     <Link to="/">
                         <img src={logo} className="ml-32 img" />
@@ -102,7 +102,7 @@ const NavBar = () => {
                         </li>
 
 
-                        <p className='navLine absolute bg-red-600 w-1 font-extralight h-9 z-50'>  </p>
+                        {/* <p className='navLine absolute bg-red-600 w-1 font-extralight h-9 z-50'>  </p> */}
 
                     </ul>
 

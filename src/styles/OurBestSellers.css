@@ -12,7 +12,14 @@
     width: 104vw;
     margin-top: 3rem;
     right: -6.5rem;
+    min-height: 1800px;
+}
 
+.itemPagination {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 :root{

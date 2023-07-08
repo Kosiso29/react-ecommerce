@@ -23,6 +23,8 @@ import ForHer from './components/ForHer';
 import ForHim from './components/ForHim';
 import MobileNav from './components/MobileNav';
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 function App() {
 
   return (

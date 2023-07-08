@@ -9,7 +9,7 @@ const Products = () => {
 
     const getData = async (pageNumber) => {
         await new Promise((resolve, reject) => {
-            fetch(`https://solarsales.pythonanywhere.com/products/?page=${pageNumber || activePageNumber}`)
+            fetch(`https://solarsales.pythonanywhere.com/products/?ordering=-rating&page=${pageNumber || activePageNumber}`)
                 .then(response => response.json())
                 .then(data => {
                     setState(data)

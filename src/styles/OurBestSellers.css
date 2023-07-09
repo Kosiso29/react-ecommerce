@@ -9,10 +9,9 @@
     flex-direction: row;
     gap: 85px;
     position: relative;
-    width: 104vw;
     margin-top: 3rem;
-    right: -6.5rem;
     min-height: 1800px;
+    justify-content: center;
 }
 
 .itemPagination {

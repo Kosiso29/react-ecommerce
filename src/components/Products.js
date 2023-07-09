@@ -22,7 +22,7 @@ const Products = () => {
             }).catch(() => reject())
         })
 
-        setActivePageNumber(pageNumber);
+        setActivePageNumber(pageNumber || activePageNumber);
     }
 
     useEffect(() => {

@@ -22,3 +22,6 @@
 .zoom2:hover{
     transform: scale(1.2);
 }
+.img{
+    width: 150px;
+}

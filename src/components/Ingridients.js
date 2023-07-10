@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/Ingridients.css";
 
-import ing1 from "../assets/ing1.png";
-import ing2 from "../assets/ing2.png";
-import ing3 from "../assets/ing3.png";
-import ing4 from "../assets/ing4.png";
-import ing5 from "../assets/ing5.png";
-import ing6 from "../assets/ing6.png";
+import ing1 from "../assets/energyoptions_10799.png";
+import ing2 from "../assets/solarpanel_sola_13595.png";
+import ing3 from "../assets/smart_technology_solar_energy_renewable_ecology_icon_152177.png";
+import ing4 from "../assets/renewable_sun_eco_ecology_solar_energy_battery_icon_186031.png";
+import ing5 from "../assets/charger_power_battery_icon_219703.png";
+import ing6 from "../assets/4_122758.png";
 
 const Ingridients = () => {
   const [categories, setCategories] = useState([]);

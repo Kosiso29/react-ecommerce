@@ -1,8 +1,8 @@
 import React from 'react'
 import "../styles/HeroSection.css"
-import one from "../assets/one.png"
-import two from "../assets/two.png"
-import three from "../assets/three.png"
+import one from "../assets/24_104862.png"
+import two from "../assets/quality-award_icon-icons.com_72192.png"
+import three from "../assets/10_122764.png"
 
 
 const HeroSection = () => {
@@ -27,7 +27,7 @@ const HeroSection = () => {
             <div className=' text-xl font-medium flex flex-row heroHeadingHold'>
                 <p> Powered By Nature </p>
                 <p> Exceptional Quality </p>
-                <p> Skin First Formulas </p>
+                <p> Home Friendly </p>
             </div>
 
             <div className='heroDescHold flex-row flex relative text-base font-normal'>

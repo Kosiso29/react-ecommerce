@@ -9,19 +9,13 @@ const HeroSection = () => {
     return (
         <div className='heroSecMainParent'>
 
-            <p className='text-4xl mt-20 text-center welcomStore'>WELCOME TO OUR STORE</p>
-            <br />
-            <br />
-
-
-            <p className='heroDescription relative text-xl flex flex-wrap'> The self care brand that's setting a new standard. Natural products, to help
-                you feel good in your own body. </p>
+            <p className='text-4xl mt-20 text-center welcomStore'> We sell inverter and inverter batteries, new and fairly used as well as solar products and equipments. </p>
 
 
             <div className='heroPicHold flex flex-row '>
-                <img src={one} className=" w-20" />
-                <img src={two} className=" w-20" />
-                <img src={three} className=" w-20" />
+                <img src={one} className=" w-20" alt=''/>
+                <img src={two} className=" w-20" alt='' />
+                <img src={three} className=" w-20" alt=''/>
             </div>
 
             <div className=' text-xl font-medium flex flex-row heroHeadingHold'>
@@ -31,9 +25,9 @@ const HeroSection = () => {
             </div>
 
             <div className='heroDescHold flex-row flex relative text-base font-normal'>
-                <p> Aliquam venenatis vel lorem id <br /> nuaer mollis eget. </p>
-                <p> Nulla tincidunt gravida augue, eget <br /> pellentesque. </p>
-                <p> Aliquam sed diam fringilla, loborti <br /> sorci nec </p>
+                <p> Harness the power of the sun, <br /> Radiance of solar energy. </p>
+                <p> Exceptional quality shines as, <br /> brightly as the sun. </p>
+                <p> Making homes friendlier to both <br /> our planet and our pockets.</p>
             </div>
         </div>
     )

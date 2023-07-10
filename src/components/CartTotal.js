@@ -21,7 +21,7 @@ const CartTotal = (props) => {
         <div className='cartTotalMainParent '>
             <div className='flex flex-row gap-36 font-semibold text-2xl mt-8 mobTextSize gap6rem'>
                 <p className=' ml-14'> SUBTOTAL </p>
-                <p> ${Math.round(props.totalPr)} </p>
+                <p> ₦{Math.round(props.totalPr)} </p>
             </div>
 
             <div className='headingHold mobTextSize2 mt-10 fof flex flex-col gap-12 relative ml-16 mr-4 font-medium text-xl'>
@@ -30,8 +30,8 @@ const CartTotal = (props) => {
             </div>
 
             <div className='calcHold mobTextSize relative fof flex flex-col gap-12 font-medium text-xl'>
-                <p> $20 </p>
-                <p> $15 </p>
+                <p> ₦20 </p>
+                <p> ₦15 </p>
             </div>
 
             <div className=' relative totLine'>
@@ -39,7 +39,7 @@ const CartTotal = (props) => {
             </div>
 
             <div className='ctActualToatal fof text-xl font-medium relative'>
-                <p> TOATL  ${Math.round(props.totalPr + 20 + 15)}</p>
+                <p> TOATL  ₦{Math.round(props.totalPr + 20 + 15)}</p>
             </div>
 
             <div className=' relative totLine2'>

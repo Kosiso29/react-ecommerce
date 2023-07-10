@@ -31,7 +31,7 @@ const BestSellers = () => {
             <div key={item.id} className="bestSellerIndivitualItem">
               <HoverImage src={item.image} hoverSrc={logo}   className="bestSellerImage rounded-xl mb-6"/>
               <p className='bestSellerName text-center mb-2'> {item.name} </p>
-              <p className=' font-normal text-center'> ${item.price} </p>
+              <p className=' font-normal text-center'> ₦{item.price} </p>
             </div>
             </Link>
           )

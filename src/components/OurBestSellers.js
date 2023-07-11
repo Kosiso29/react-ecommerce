@@ -25,6 +25,11 @@ const OurBestSellers = (props) => {
             })
         )
     }
+    const formatter = new Intl.NumberFormat('en-NG', {
+        style: 'currency',
+        currency: 'NGN',
+        minimumFractionDigits: 0,
+    });
 
     const toast = useToast();
 
@@ -45,7 +50,7 @@ const OurBestSellers = (props) => {
                     </Link>
                     <div className="card-body items-center text-center">
                         <h2 className="card-title mb-1 font-bold text-xl">{title}</h2>
-                        <h2 className=" text-xl mb-2 fof">₦{price}</h2>
+                        <h2 className="text-xl mb-2 fof">{formatter.format(price)}</h2>
 
 
                         <div className="card-actions" onClick={() =>
@@ -58,7 +63,7 @@ const OurBestSellers = (props) => {
                                 position: 'top-right'
                             })
                         }>
-                            <button className="btn btn-primary" onClick={addItemToCartHandler}>Buy Now</button>
+                            <button className="btn btn-danger" onClick={addItemToCartHandler}>Add to cart</button>
                         </div>
 
                     </div>

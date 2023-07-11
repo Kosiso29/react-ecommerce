@@ -129,7 +129,7 @@ const Under20 = () => {
         SetsolarShow(false)
 
         await new Promise((resolve, reject) => {
-            fetch('http://solarsales.pythonanywhere.com/products/?ordering=-price')
+            fetch('http://solarsales.pythonanywhere.com/products/products/productlist/category=2/')
                 .then(response => response.json())
                 .then(data => {
                     setState(data)
@@ -168,8 +168,8 @@ const Under20 = () => {
             </div>
 
             <div className='u20HeadingHold gap-20 justify-center relative flex flex-col'>
-                <p className='u20Heading'> Over ₦1,000,000 </p>
-                <p className='u20Desc'> Solar System solutions.</p>
+                <p className='u20Heading'> SOLAR PANEL </p>
+                <p className='u20Desc'> Unleash the power of the sun with solar panels, illuminating a sustainable future.</p>
             </div>
 
             <div className='u20BreadCrumbHold absolute text-sm'>
@@ -180,7 +180,7 @@ const Under20 = () => {
 
 
                     <BreadcrumbItem>
-                        <Link to={`/`} href='#'>Over ₦1,000,000 </Link>
+                        <Link to={`/`} href='#'>Solar Panel </Link>
                     </BreadcrumbItem>
                 </Breadcrumb>
             </div>

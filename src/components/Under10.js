@@ -126,8 +126,8 @@ const Under10 = () => {
             </div>
 
             <div className='u20HeadingHold gap-20 justify-center relative flex flex-col'>
-                <p className='u20Heading'> Under $40 </p>
-                <p className='u20Desc'> Shop Sukin natural and vegan collection of skincare and hair care gifts under $20.</p>
+                <p className='u20Heading'> INVERTER </p>
+                <p className='u20Desc'> Transforming solar energy into electrifying potential, the inverter empowers a seamless transition to renewable power.</p>
             </div>
 
             <div className='u20BreadCrumbHold absolute text-sm'>
@@ -138,7 +138,7 @@ const Under10 = () => {
 
 
                     <BreadcrumbItem>
-                        <Link to={`/`} href='#'>Under 40</Link>
+                        <Link to={`/`} href='#'>Inverter</Link>
                     </BreadcrumbItem>
                 </Breadcrumb>
             </div>
@@ -306,9 +306,9 @@ const Under10 = () => {
             </div>
             }
 
-            <div className='u20Js relative'>
+            {/* <div className='u20Js relative'>
                 <JournalSection />
-            </div>
+            </div> */}
 
             <div className='u20Featyres relative'>
 

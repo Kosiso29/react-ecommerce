@@ -118,8 +118,8 @@ const ForHim = () => {
             </div>
 
             <div className='u20HeadingHold gap-20 justify-center relative flex flex-col'>
-                <p className='u20Heading'>Natural Gifts For Him </p>
-                <p className='u20Desc'> Shop Sukin natural and vegan collection of skincare and hair care gifts under $20.</p>
+                <p className='u20Heading'> OTHERS </p>
+                <p className='u20Desc'> Embrace the brilliance of a complete solar system, where sunlight becomes the foundation of sustainable energy for a brighter future.</p>
             </div>
 
             <div className='u20BreadCrumbHold absolute text-sm'>
@@ -130,7 +130,7 @@ const ForHim = () => {
 
 
                     <BreadcrumbItem>
-                        <Link to={`/`} href='#'>Under 40</Link>
+                        <Link to={`/`} href='#'>Others</Link>
                     </BreadcrumbItem>
                 </Breadcrumb>
             </div>
@@ -298,9 +298,9 @@ const ForHim = () => {
             </div>
             }
 
-            <div className='u20Js relative'>
+            {/* <div className='u20Js relative'>
                 <JournalSection />
-            </div>
+            </div> */}
 
             <div className='u20Featyres relative'>
 

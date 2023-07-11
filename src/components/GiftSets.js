@@ -12,19 +12,19 @@ const GiftSets = () => {
             <div className='flex flex-col gap-8 bestSellerPriceHolder'>
 
                 <Link to={"/under20"} >
-                    <p className="hover:underline"> Under $20 </p>
+                    <p className="hover:underline"> Over ₦1,000,000 </p>
                 </Link>
 
                 <Link to={"/under40"} >
-                    <p className="hover:underline"> Under $40 </p>
+                    <p className="hover:underline"> Under ₦1,000,000 </p>
                 </Link>
 
                 <Link to={"/forher"} >
-                    <p className="hover:underline"> For Her </p>
+                    <p className="hover:underline"> For 1 Room </p>
                 </Link>
 
                 <Link to={"/forhim"} >
-                    <p className="hover:underline"> For Him </p>
+                    <p className="hover:underline"> For Multi-rooms </p>
                 </Link>
 
             </div>
@@ -39,7 +39,7 @@ const GiftSets = () => {
                                 <div key={item.id} className="giftIndivitual">
                                     <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="GiftImage w-48 rounded-lg mb-6" />
                                     <p className='giftName text-center text-md mb-2'> {item.name} </p>
-                                    <p className='giftPrice font-normal text-center' >${item.price} </p>
+                                    <p className='giftPrice font-normal text-center' >₦{item.price} </p>
                                 </div>
                             </Link>
                         )

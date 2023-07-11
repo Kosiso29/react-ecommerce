@@ -1,9 +1,31 @@
-import React from 'react'
 import "../styles/GiftSets.css";
 import { store } from '../productsStore/Store';
 import HoverImage from 'react-hover-image/build';
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
 const GiftSets = () => {
+    const [state, setState] = useState({ results: [] });
+    const getData = async (pageNumber) => {
+        await new Promise((resolve, reject) => {
+            fetch('http://solarsales.pythonanywhere.com/products/?ordering=-rating&page_size=2')
+                .then(response => response.json())
+                .then(data => {
+                    setState(data)
+                    resolve()
+            }).catch(() => reject())
+        })
+    }
+
+    const formatter = new Intl.NumberFormat('en-NG', {
+      style: 'currency',
+      currency: 'NGN',
+      minimumFractionDigits: 0,
+    });
+
+    useEffect(() => {
+        getData()
+    }, [])
+
     return (
         <div className='giftSetMainParent'>
 
@@ -31,21 +53,17 @@ const GiftSets = () => {
 
             <div className='flex fle-row gap-20 giftHold'>
 
-                {store.map((item) => {
-                    if (item.type == "gift")
-                        return (
-                            <Link to={`/${item.id}`} key={item.id}>
-
-                                <div key={item.id} className="giftIndivitual">
-                                    <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="GiftImage w-48 rounded-lg mb-6" />
-                                    <p className='giftName text-center text-md mb-2'> {item.name} </p>
-                                    <p className='giftPrice font-normal text-center' >₦{item.price} </p>
-                                </div>
-                            </Link>
-                        )
+                {state?.results?.map((item) => {
+                    return (
+                        <Link to={`/${item.id}`} key={item.id}>  
+                        <div key={item.id} className="bestSellerIndivitualItem">
+                        <HoverImage src={item.image} hoverSrc={item.image}   className="bestSellerImage rounded-xl mb-6"/>
+                        {/* <p className='bestSellerName text-center mb-4'> {item.name} </p>
+                        <p className=' font-normal text-center'> {formatter.format(item.price)} </p> */}
+                        </div>
+                        </Link>
+                    )
                 })}
-
-
 
             </div>
         </div>

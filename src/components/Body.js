@@ -109,18 +109,18 @@ const Body = () => {
   return (
     <div>
       <div className='categoryHold flex flex-col gap-14 font-normal absolute left-16 top-11'>
-        <div className='bodyHold lineHeight w-56 w56rem' onMouseMove={showHandler}>
+        <Link to={"/under20"}  className='bodyHold lineHeight w-56 w56rem' onMouseMove={showHandler}>
           <p className=' font-semibold hover-underline-animation'>PANEL</p>
-        </div>
-        <div className='hairHold lineHeight w-56' onMouseMove={showHandler2}>
+        </Link>
+        <Link to={"/forher"} className='hairHold lineHeight w-56' onMouseMove={showHandler2}>
           <p className=' font-semibold hover-underline-animation'>BATTERY</p>
-        </div>
-        <div className='travelHold w-52 lineHeight' onMouseMove={showHandler4}>
+        </Link>
+        <Link to={"/under40"} className='travelHold w-52 lineHeight' onMouseMove={showHandler4}>
           <p className=' font-semibold hover-underline-animation'>INVERTER</p>
-        </div>
-        <div className='newHold lineHeight' onMouseMove={showHandler3}>
+        </Link>
+        <Link to={"/forhim"} className='newHold lineHeight' onMouseMove={showHandler3}>
           <p className=' font-semibold hover-underline-animation'>OTHERS</p>
-        </div>
+        </Link>
       </div>
 
       {show && (

@@ -7,6 +7,9 @@ export default class AutoPlayMethods extends Component {
         super(props);
         this.play = this.play.bind(this);
         this.pause = this.pause.bind(this);
+        this.state = {
+            items: []
+        }
     }
     play() {
         this.slider.slickPlay();
@@ -14,6 +17,18 @@ export default class AutoPlayMethods extends Component {
     pause() {
         this.slider.slickPause();
     }
+    
+    async componentDidMount() {
+        await new Promise((resolve, reject) => {
+            fetch(`http://solarsales.pythonanywhere.com/products/?ordering=-rating&page_size=8`)
+                .then(response => response.json())
+                .then(data => {
+                    this.setState(prevState => prevState.items = data.results);
+                    resolve();
+            }).catch(() => reject())
+        })
+    }
+
     render() {
         const settings = {
             dots: false,
@@ -41,17 +56,15 @@ export default class AutoPlayMethods extends Component {
         return (
             <div className="singleMainParentSlider">
                 <Slider ref={slider => (this.slider = slider)} {...settings}>
-                    {store.map((item) => {
-                        if (item.type == "ourBestSellers") {
-                            return (
-                                <Link to={`/${item.id}`} key={item.id}>
-                                    <div key={item.id}>
-                                        <img src={item.primaryImage} className=" rounded-md w-48 spCaroImg" />
-                                    </div>
-                                </Link>
+                    {this.state?.items?.map((item) => {
+                        return (
+                            <Link to={`/${item.id}`} key={item.id}>
+                                <div key={item.id}>
+                                    <img src={item.image} className=" rounded-md w-48 spCaroImg" />
+                                </div>
+                            </Link>
 
-                            )
-                        }
+                        )
                     })}
                 </Slider>
 

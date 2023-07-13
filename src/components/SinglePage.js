@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { store } from '../productsStore/Store';
 import { useDispatch } from 'react-redux';
@@ -28,7 +28,8 @@ import Marquee from "react-fast-marquee";
 const SinglePage = () => {
 
 
-  const params = useParams();
+    const params = useParams();
+    const [prodClicked, SetProdClicked] = useState({});
 
   const { id } = params;
 
@@ -46,17 +47,31 @@ const SinglePage = () => {
     )
   }
 
+  const getData = async (id) => {
+      await new Promise((resolve, reject) => {
+          fetch(`https://solarsales.pythonanywhere.com/products/${id}`)
+              .then(response => response.json())
+              .then(data => {
+                  SetProdClicked(data)
+                  resolve()
+          }).catch(() => reject())
+      })
+  }
 
-  const prodClicked = store.find((item) => item.id === id)
+    useEffect(() => {
+        getData(id);
+    }, [id])
 
-  var { name, price, primaryImage, hoverImg } = prodClicked;
+//   const prodClicked = store.find((item) => item.id === id)
+
+  var { name, price, image: primaryImage, description } = prodClicked;
 
 
   let title = name;
 
   var image = primaryImage;
 
-  let tempImage = image;
+//   let tempImage = image;
 
   
 
@@ -95,26 +110,26 @@ const SinglePage = () => {
 
 
       <figure className='singlePageMainPicHold relative'>
-        {imgChnage === true ? <img src={activeImg} className=" w-48 cursor-pointer rounded-2xl object-cover singlePageMainPic" /> : <img src={image} className=" w-48 cursor-pointer rounded-2xl object-cover singlePageMainPic" />}
+        {imgChnage === true ? <img src={image} className=" w-48 cursor-pointer rounded-2xl object-cover singlePageMainPic" /> : <img src={image} className=" w-48 cursor-pointer rounded-2xl object-cover singlePageMainPic" />}
       </figure>
 
 
 
 
       <div className='sideImageHold flex flex-col relative gap-12'>
-        <img src={hoverImg} className=" w-64 cursor-pointer  object-cover" onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
-        <img src='https://cdn.shopify.com/s/files/1/0081/7374/8305/products/NO_Lists_for_Site-SIG_21bc4fd3-c2b5-4e21-8244-1f0f61cce160_540x.png?v=1599504641' className='w-64 cursor-pointer rounded-lg object-cover' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
+        <img src={image} className=" w-64 cursor-pointer  object-cover" onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
+        <img src={image} className='w-64 cursor-pointer rounded-lg object-cover' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
       </div>
 
       <div className='bottomImgHold flex flex-row relative gap-8'>
-        <img src='https://cdn.shopify.com/s/files/1/0081/7374/8305/products/anysiaalice_image_720x.jpg?v=1599504641' className=' w-80 si cursor-pointer object-cover' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
-        <img src='https://cdn.shopify.com/s/files/1/0081/7374/8305/products/anysiaalice_quote-1_720x.jpg?v=1599504641' className=' w-80 si cursor-pointer object-cover' id='mobileDontSHow' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
+        <img src={image} className=' w-80 si cursor-pointer object-cover' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
+        <img src={image} className=' w-80 si cursor-pointer object-cover' id='mobileDontSHow' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
       </div>
 
 
       <div className='namePriceSP relative fof flex flex-col gap-6'>
         <p className='font-semibold text-xl w-80'> {name} </p>
-        <p className='text-xl sp relative'> ${price} </p>
+        <p className='text-xl sp relative'> ₦{price} </p>
       </div>
 
       <p className='relative singleLinetop text-gray-300'> ___________________________________________________________________  </p>
@@ -148,7 +163,7 @@ const SinglePage = () => {
       </div>
 
       <div>
-        <SinglePageFAQ />
+        <SinglePageFAQ description={description} />
       </div>
 
       <p className='fof text-4xl spText absolute text-center'> YOU MAY ALSO LIKE </p>

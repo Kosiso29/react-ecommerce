@@ -11,7 +11,7 @@ import {
 
 import aus from "../assets/aus.png";
 
-const SinglePageFAQ = () => {
+const SinglePageFAQ = ({ description }) => {
     return (
         <div>
 
@@ -25,17 +25,7 @@ const SinglePageFAQ = () => {
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4}>
-                        Did you know that 1 Sukin Hydrating Mist Toner is sold every 40 seconds!?
-                        Yep- if you haven't tried it, you need to. Our alcohol-free Mist Toner blends
-                        Chamomile and Rosewater to help soothe, purify and cool your tired skin. And
-                        did we mention it is the ultimate multi use product? It can be used before
-                        and after cleansing, in the office as a 3pm pick me up, after makeup application
-                        to give you a dewy complexion or just anytime your skin is feeling stressed or
-                        overheated! TIP: Keep in the refrigerator to instantly refresh skin on hot days.
-                        It is also amazing at blending concealer under the eyes with a beauty sponge!
-
-                    </AccordionPanel>
+                    <AccordionPanel pb={4}>{ description }</AccordionPanel>
                 </AccordionItem>
 
                 <AccordionItem>

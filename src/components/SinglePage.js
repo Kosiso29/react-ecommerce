@@ -23,6 +23,7 @@ import SPFooter from './SPFooter';
 import {GiCardboardBoxClosed} from "react-icons/gi";
 import { useToast } from '@chakra-ui/react'
 import Marquee from "react-fast-marquee";
+import axios from "../axios";
 
 
 const SinglePage = () => {
@@ -49,8 +50,8 @@ const SinglePage = () => {
 
   const getData = async (id) => {
       await new Promise((resolve, reject) => {
-          fetch(`https://solarsales.pythonanywhere.com/products/${id}`)
-              .then(response => response.json())
+          axios.get(`/products/${id}`)
+              .then(response => response.data)
               .then(data => {
                   SetProdClicked(data)
                   resolve()

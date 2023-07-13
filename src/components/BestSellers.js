@@ -4,14 +4,15 @@ import "../styles/BestSellers.css";
 import HoverImage from 'react-hover-image/build';
 import { Link } from 'react-router-dom';
 import logo from "../assets/cara.png";
+import axios from "../axios";
 
 const BestSellers = () => {
     const [state, setState] = useState({ results: [] });
 
     const getData = async (pageNumber) => {
         await new Promise((resolve, reject) => {
-            fetch('http://solarsales.pythonanywhere.com/products/?ordering=-rating&page_size=4')
-                .then(response => response.json())
+            axios.get('/products/?ordering=-rating&page_size=4')
+                .then(response => response.data)
                 .then(data => {
                     setState(data)
                     resolve()

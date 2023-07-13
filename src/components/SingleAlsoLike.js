@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import { store } from "../productsStore/Store";
 import { Link } from "react-router-dom";
+import axios from "../axios";
 export default class AutoPlayMethods extends Component {
     constructor(props) {
         super(props);
@@ -20,8 +21,8 @@ export default class AutoPlayMethods extends Component {
     
     async componentDidMount() {
         await new Promise((resolve, reject) => {
-            fetch(`http://solarsales.pythonanywhere.com/products/?ordering=-rating&page_size=8`)
-                .then(response => response.json())
+            axios.get(`/products/?ordering=-rating&page_size=8`)
+                .then(response => response.data)
                 .then(data => {
                     this.setState(prevState => prevState.items = data.results);
                     resolve();

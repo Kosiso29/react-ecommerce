@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 // import { store } from "../productsStore/Store";
 import OurBestSellers from './OurBestSellers';
 import Pagination from 'react-bootstrap/Pagination';
+import axios from "../axios";
 
 const Products = () => {
     const [state, setState] = useState({ results: [] });
@@ -10,8 +11,8 @@ const Products = () => {
 
     const getData = async (pageNumber) => {
         await new Promise((resolve, reject) => {
-            fetch(`https://solarsales.pythonanywhere.com/products/?page=${pageNumber || activePageNumber}`)
-                .then(response => response.json())
+            axios.get(`/products/?page=${pageNumber || activePageNumber}`)
+                .then(response => response.data)
                 .then(data => {
                     if (pagesArray.length === 0) {
                         const newPagesArray = Array.from({length: Math.ceil(data.count / data.results.length)}, (_, i) => i + 1)

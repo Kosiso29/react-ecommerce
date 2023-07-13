@@ -11,7 +11,7 @@ import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import filterBtn from "../assets/filterBtn.png";
 import sortBtn from "../assets/sortBtn.png"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { store } from "../productsStore/Store";
 import HoverImage from 'react-hover-image/build';
 import JournalSection from "./JournalSection"
@@ -30,17 +30,34 @@ const Under20 = () => {
 
     const [sort, SetSort] = useState(false);
 
-    const [bodyLotionShow, SetBodyLotionShow] = useState(false);
+    const [batteryShow, SetbatteryShow] = useState(false);
 
-    const [bodyScrubShow, SetBodyScrubShow] = useState(false);
+    const [solarShow, SetsolarShow] = useState(false);
 
-    const [bodyWashShow, SetBodyWashShow] = useState(false);
+    const [inverterShow, SetinverterShow] = useState(false);
 
     const [allShow, SetAllShow] = useState(true);
 
     const [lowTOHigh, SetLowTOHigh] = useState(false);
 
+    const [state, setState] = useState({ results: [] });
 
+    const getData = async (pageNumber) => {
+        await new Promise((resolve, reject) => {
+            fetch('http://solarsales.pythonanywhere.com/products/?ordering=-rating&page_size=4')
+                .then(response => response.json())
+                .then(data => {
+                    setState(data)
+                    resolve()
+            }).catch(() => reject())
+        })
+    }
+
+    const formatter = new Intl.NumberFormat('en-NG', {
+      style: 'currency',
+      currency: 'NGN',
+      minimumFractionDigits: 0,
+    });
 
 
     const filterShowHandler = () => {
@@ -53,45 +70,73 @@ const Under20 = () => {
     }
 
 
-    const bodyLotionHandler = () => {
-        SetBodyLotionShow(true);
+    const batteryHandler = async() => {
+        SetbatteryShow(true);
         SetAllShow(false)
 
-        SetBodyScrubShow(false);
-        SetBodyWashShow(false);
+        SetsolarShow(false);
+        SetinverterShow(false);
+
+        await new Promise((resolve, reject) => {
+            fetch('http://solarsales.pythonanywhere.com/products/products/productlist/category=1/')
+                .then(response => response.json())
+                .then(data => {
+                    setState(data)
+                    resolve()
+            }).catch(() => reject())
+        })
     }
 
-    const bodyScrubHandler = () => {
-        SetBodyScrubShow(true)
+    const solarHandler = async() => {
+        SetsolarShow(true)
         SetAllShow(false)
 
-        SetBodyLotionShow(false);
-        SetBodyWashShow(false)
+        SetbatteryShow(false);
+        SetinverterShow(false)
+
+        await new Promise((resolve, reject) => {
+            fetch('http://solarsales.pythonanywhere.com/products/products/productlist/category=2/')
+                .then(response => response.json())
+                .then(data => {
+                    setState(data)
+                    resolve()
+            }).catch(() => reject())
+        })
     }
 
-    const bodyWashHandler = () => {
-        SetBodyWashShow(true)
+    const inverterHandler = async() => {
+        SetinverterShow(true)
         SetAllShow(false)
 
-        SetBodyLotionShow(false)
-        SetBodyScrubShow(false)
+        SetbatteryShow(false)
+        SetsolarShow(false)
+
+        await new Promise((resolve, reject) => {
+            fetch('http://solarsales.pythonanywhere.com/products/products/productlist/category=5/')
+                .then(response => response.json())
+                .then(data => {
+                    setState(data)
+                    resolve()
+            }).catch(() => reject())
+        })
     }
 
-    const allShowHandler = () => {
+    const allShowHandler = async() => {
         SetAllShow(true)
 
-        SetBodyWashShow(false)
-        SetBodyLotionShow(false)
-        SetBodyScrubShow(false)
+        SetinverterShow(false)
+        SetbatteryShow(false)
+        SetsolarShow(false)
+
+        await new Promise((resolve, reject) => {
+            fetch('http://solarsales.pythonanywhere.com/products/products/productlist/category=2/')
+                .then(response => response.json())
+                .then(data => {
+                    setState(data)
+                    resolve()
+            }).catch(() => reject())
+        })
     }
-
-
-
-    var bodyLotionProducts = store.filter(product => product.type.includes('bodyLotion'));
-
-    var bodyScrubProducts = store.filter(produt => produt.type.includes("bodyScrub"));
-
-    var bodyWashProducts = store.filter(product => product.type.includes("bodywash"));
 
 
     const bgAddHandler = (e) => {
@@ -105,7 +150,13 @@ const Under20 = () => {
       
     }
 
-
+    useEffect(() => {
+            getData()
+            allShowHandler()
+            inverterHandler()
+            solarHandler()
+            batteryHandler()
+     }, [])
 
 
     return (
@@ -117,8 +168,8 @@ const Under20 = () => {
             </div>
 
             <div className='u20HeadingHold gap-20 justify-center relative flex flex-col'>
-                <p className='u20Heading'> Under $20 </p>
-                <p className='u20Desc'> Shop Sukin natural and vegan collection of skincare and hair care gifts under $20.</p>
+                <p className='u20Heading'> SOLAR PANEL </p>
+                <p className='u20Desc'> Unleash the power of the sun with solar panels, illuminating a sustainable future.</p>
             </div>
 
             <div className='u20BreadCrumbHold absolute text-sm'>
@@ -129,7 +180,7 @@ const Under20 = () => {
 
 
                     <BreadcrumbItem>
-                        <Link to={`/`} href='#'>Under 20</Link>
+                        <Link to={`/`} href='#'>Solar Panel </Link>
                     </BreadcrumbItem>
                 </Breadcrumb>
             </div>
@@ -143,9 +194,9 @@ const Under20 = () => {
 
             <div className='filterOptionsHold  relative'>
                 {filter && <div className='flex rounded-xl gap-8 flex-col boxSh fof absolute '>
-                    <p className='ml-12 scale cursor-pointer scale' onClick={bodyLotionHandler}> Body Lotion</p>
-                    <p className='ml-12 scale cursor-pointer' onClick={bodyWashHandler}> Body Wash </p>
-                    <p className='ml-12 scale cursor-pointer' onClick={bodyScrubHandler}> Body Scrub </p>
+                    <p className='ml-12 scale cursor-pointer scale' onClick={batteryHandler}> Battery</p>
+                    <p className='ml-12 scale cursor-pointer' onClick={inverterHandler}> Inverter </p>
+                    <p className='ml-12 scale cursor-pointer' onClick={solarHandler}> Solar Panel </p>
                     <p className='ml-12 scale cursor-pointer text-white' onClick={allShowHandler}> All Products </p>
 
                 </div>}
@@ -156,32 +207,29 @@ const Under20 = () => {
 
 
             {allShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {store.map((item) => {
-
-                    if (item.type.includes("all")) {
-                        return (
-                            <div className='card w-96 bg-base-100 u20IndResponsive shadow-xl  '>
+                {state?.results?.map((item) => {
+                    return (
+                        <div className='card w-96 bg-base-100 u20IndResponsive shadow-xl  '>
                                 <Link to={`/${item.id}`}>
                                     <figure className="px-10 pt-10">
-                                        <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="w-32 u20img" />
+                                        <HoverImage src={item.image} hoverSrc={item.image} className="w-32 u20img" />
                                     </figure>
 
                                 </Link>
                                 <div className="card-body items-center text-center">
                                     <h2 className=" mb-1 fof text-lg font-semibold">{item.name}</h2>
-
+                                    <h2 className=" text-xl mb-2 fof u20Price">{formatter.format(item.price)}</h2>
 
                                     <Link to={`/${item.id}`}>
                                         <div className="card-actions">
-                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>Know More </button>
+                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>More </button>
                                             <p className='btnLine relative bg-black h-8'>  </p>
-                                            <h2 className=" text-xl mb-2 fof u20Price">${item.price}</h2>
                                         </div>
                                     </Link>
                                 </div>
                             </div>
-                        )
-                    }
+                        
+                    )
                 })}
             </div>
             }
@@ -189,32 +237,30 @@ const Under20 = () => {
 
             {/* BODY LOTION  */}
 
-            {bodyLotionShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {bodyLotionProducts.map((item) => {
-
-                    if (item.type.includes("all")) {
-                        return (
-                            <div className='card w-96 bg-base-100 shadow-xl  '>
+            {batteryShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
+                {state?.results?.map((item) => {
+                    return (
+                        <div className='card w-96 bg-base-100 u20IndResponsive shadow-xl  '>
                                 <Link to={`/${item.id}`}>
                                     <figure className="px-10 pt-10">
-                                        <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="w-32 u20img" />
+                                        <HoverImage src={item.image} hoverSrc={item.image} className="w-32 u20img" />
                                     </figure>
 
                                 </Link>
                                 <div className="card-body items-center text-center">
                                     <h2 className=" mb-1 fof text-lg font-semibold">{item.name}</h2>
+                                    <h2 className=" text-xl mb-2 fof u20Price">{formatter.format(item.price)}</h2>
 
                                     <Link to={`/${item.id}`}>
                                         <div className="card-actions">
-                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>Know More </button>
+                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>More </button>
                                             <p className='btnLine relative bg-black h-8'>  </p>
-                                            <h2 className=" text-xl mb-2 fof u20Price">${item.price}</h2>
                                         </div>
                                     </Link>
                                 </div>
                             </div>
-                        )
-                    }
+                        
+                    )
                 })}
             </div>
             }
@@ -222,34 +268,30 @@ const Under20 = () => {
 
             {/* BODY WASH */}
 
-            {bodyWashShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {bodyWashProducts.map((item) => {
-
-                    if (item.type.includes("all")) {
-                        return (
-                            <div className='card w-96 bg-base-100 shadow-xl  '>
+            {solarShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
+                {state?.results?.map((item) => {
+                    return (
+                        <div className='card w-96 bg-base-100 u20IndResponsive shadow-xl  '>
                                 <Link to={`/${item.id}`}>
                                     <figure className="px-10 pt-10">
-                                        <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="w-32 u20img" />
+                                        <HoverImage src={item.image} hoverSrc={item.image} className="w-32 u20img" />
                                     </figure>
 
                                 </Link>
                                 <div className="card-body items-center text-center">
                                     <h2 className=" mb-1 fof text-lg font-semibold">{item.name}</h2>
+                                    <h2 className=" text-xl mb-2 fof u20Price">{formatter.format(item.price)}</h2>
 
                                     <Link to={`/${item.id}`}>
                                         <div className="card-actions">
-                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>Know More </button>
+                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>More </button>
                                             <p className='btnLine relative bg-black h-8'>  </p>
-                                            <h2 className=" text-xl mb-2 fof u20Price">${item.price}</h2>
                                         </div>
                                     </Link>
-
                                 </div>
                             </div>
-                        )
-
-                    }
+                        
+                    )
                 })}
             </div>
             }
@@ -257,44 +299,37 @@ const Under20 = () => {
 
             { /* BODY SCRUB */}
 
-            {bodyScrubShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {bodyScrubProducts.map((item) => {
-
-                    if (item.type.includes("all")) {
-                        return (
-                            <div className='card w-96 bg-base-100 shadow-xl  '>
+            {inverterShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
+                {state?.results?.map((item) => {
+                    return (
+                        <div className='card w-96 bg-base-100 u20IndResponsive shadow-xl  '>
                                 <Link to={`/${item.id}`}>
                                     <figure className="px-10 pt-10">
-                                        <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="w-32 u20img" />
+                                        <HoverImage src={item.image} hoverSrc={item.image} className="w-32 u20img" />
                                     </figure>
 
                                 </Link>
                                 <div className="card-body items-center text-center">
                                     <h2 className=" mb-1 fof text-lg font-semibold">{item.name}</h2>
+                                    <h2 className=" text-xl mb-2 fof u20Price">{formatter.format(item.price)}</h2>
 
                                     <Link to={`/${item.id}`}>
                                         <div className="card-actions">
-                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>Know More </button>
+                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>More </button>
                                             <p className='btnLine relative bg-black h-8'>  </p>
-                                            <h2 className=" text-xl mb-2 fof u20Price">${item.price}</h2>
                                         </div>
                                     </Link>
-
                                 </div>
-
                             </div>
-                        )
-
-                    }
+                        
+                    )
                 })}
-
-
             </div>
             }
 
-            <div className='u20Js relative'>
+            {/* <div className='u20Js relative'>
                 <JournalSection />
-            </div>
+            </div> */}
 
             <div className='u20Featyres relative'>
 

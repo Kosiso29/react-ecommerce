@@ -30,7 +30,11 @@ const Cart = (props) => {
 //     return item.quantity * item.price;
 //   }).reduce((totalPrice, singleItemPrice) => totalPrice + singleItemPrice, 0);
 
-
+  const formatter = new Intl.NumberFormat('en-NG', {
+    style: 'currency',
+    currency: 'NGN',
+    minimumFractionDigits: 0,
+  });
 
 
   const removeItemFromCartHandler = () => {
@@ -66,7 +70,7 @@ const Cart = (props) => {
         </div>
 
         <p className=' font-semibold relative text-xl cartName fof w-56 whitespace-nowrap'> {title} </p>
-        <p className=' relative w-24 cartPrice text-xl'>₦{price} </p>
+        <p className=' relative w-24 cartPrice text-xl'>{formatter.format(price)} </p>
 
         <div className='middleLine relative text-gray-200'>
           ___________________________________________________________</div>

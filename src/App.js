@@ -32,7 +32,7 @@ function App() {
       <BrowserRouter>
 
         <Routes >
-          <Route path='/' exact element={<>   <NavBar /> <MobileNav />  <SimpleSlider />  <HeroSection /> {/* <BsText /> */} <Ingridients /> {<Products />}  {/*<OurBestSellers /> <JournalSection />*/}   <FollowONIG /> <SPFooter />  </>} />
+          <Route path='/' exact element={<>   <NavBar /> <MobileNav />  <SimpleSlider /> <HeroSection /> {/* <BsText /> */} <Ingridients /> {<Products />}  {/*<OurBestSellers /> <JournalSection />*/}   <FollowONIG /> <SPFooter />  </>} />
           <Route path='/:id' exact element={<> <NavBar /> <MobileNav />  <SinglePage /> </>} />
           <Route path='/journal/april' element={<> <NavBar /> <MobileNav />  <JournalPage /> </>} />
           <Route path='/cart' exact element={<>  <NavBar /> <CartHold /></>} />

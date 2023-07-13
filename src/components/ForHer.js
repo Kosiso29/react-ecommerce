@@ -119,8 +119,8 @@ const ForHer = () => {
             </div>
 
             <div className='u20HeadingHold gap-20 justify-center relative flex flex-col'>
-                <p className='u20Heading'>Natural Gifts For Her </p>
-                <p className='u20Desc'> Shop Sukin natural and vegan collection of skincare and hair care gifts under $20.</p>
+                <p className='u20Heading'> BATTERY </p>
+                <p className='u20Desc'> Empowering energy independence, batteries store the sun's vitality to illuminate even the darkest hours.</p>
             </div>
 
             <div className='u20BreadCrumbHold absolute text-sm'>
@@ -131,7 +131,7 @@ const ForHer = () => {
 
 
                     <BreadcrumbItem>
-                        <Link to={`/`} href='#'>Under 20</Link>
+                        <Link to={`/`} href='#'>Battery</Link>
                     </BreadcrumbItem>
                 </Breadcrumb>
             </div>
@@ -299,9 +299,9 @@ const ForHer = () => {
             </div>
             }
 
-            <div className='u20Js relative'>
+            {/* <div className='u20Js relative'>
                 <JournalSection />
-            </div>
+            </div> */}
 
             <div className='u20Featyres relative'>
 

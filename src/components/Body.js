@@ -8,7 +8,10 @@ const Body = () => {
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
   const [show4, setShow4] = useState(false);
-  const [state, setState] = useState({ results: [] });
+  const [panel, setPanel] = useState([]);
+  const [battery, setBattery] = useState([]);
+  const [inverter, setInverter] = useState([]);
+  const [controller, setController] = useState([]);
 
   const showHandler = async () => {
     setShow(true);
@@ -16,8 +19,6 @@ const Body = () => {
     setShow2(false);
     setShow3(false);
     setShow4(false);
-
-    await getData(2);
 
     document.querySelector(".bodyContent").style.opacity = "1";
     document.querySelector(".hairContent").style.opacity = "0";
@@ -36,8 +37,6 @@ const Body = () => {
     document.querySelector(".bodyContent").style.opacity = "0";
     document.querySelector(".newContent").style.opacity = "0";
     document.querySelector(".travelContent").style.opacity = "0";
-
-    await getData(1);
   };
 
   const showHandler3 = async () => {
@@ -51,8 +50,6 @@ const Body = () => {
     document.querySelector(".hairContent").style.opacity = "0";
     document.querySelector(".bodyContent").style.opacity = "0";
     document.querySelector(".newContent").style.opacity = "0";
-
-    await getData(5);
   };
 
   const showHandler4 = async () => {
@@ -66,8 +63,6 @@ const Body = () => {
     document.querySelector(".hairContent").style.opacity = "0";
     document.querySelector(".bodyContent").style.opacity = "0";
     document.querySelector(".travelContent").style.opacity = "0";
-
-    await getData(5);
   };
 
   const dontShowHandler = () => {
@@ -82,12 +77,12 @@ const Body = () => {
     document.querySelector(".travelContent").style.opacity = "0";
   };
 
-  const getData = async (category_id) => {
+  const getData = async (category_id, setItem) => {
     await new Promise((resolve, reject) => {
       fetch(`http://solarsales.pythonanywhere.com/products/products/productlist/category=${category_id}/?ordering=-rating&page_size=2`)
         .then(response => response.json())
         .then(data => {
-          setState(data);
+          setItem(data.results);
           resolve();
         })
         .catch(() => {
@@ -95,6 +90,7 @@ const Body = () => {
           reject();
         });
     });
+    console.log('item', panel, battery, inverter);
   };
   const formatter = new Intl.NumberFormat('en-NG', {
     style: 'currency',
@@ -103,7 +99,10 @@ const Body = () => {
   });
 
   useEffect(() => {
-    showHandler();
+    getData(2, setPanel);
+    getData(1, setBattery);
+    getData(5, setInverter);
+    getData(3, setController);
   }, []);
 
   return (
@@ -119,7 +118,7 @@ const Body = () => {
           <p className=' font-semibold hover-underline-animation'>INVERTER</p>
         </Link>
         <Link to={"/others"} className='newHold lineHeight' onMouseMove={showHandler3}>
-          <p className=' font-semibold hover-underline-animation'>OTHERS</p>
+          <p className=' font-semibold hover-underline-animation'>CONTROLLER</p>
         </Link>
       </div>
 
@@ -133,7 +132,7 @@ const Body = () => {
           <p>   OTHERS </p>
 
           <div className='bodyTypeHold flex'>
-            {state.results.map((item) => {
+            {panel?.map((item) => {
               return (
                 <Link to={`/${item.id}`} key={item.id}>
                   <div key={item.id} className="bodyTypeIndivitual">
@@ -157,12 +156,12 @@ const Body = () => {
           </div>
 
           <div className='bodyTypeHold flex flex-row gap-10'>
-            {state.results.map((item) => {
+            {battery?.map((item) => {
               return (
                 <Link to={`/${item.id}`} key={item.id}>
                   <div className='newIndivitual'>
                     <HoverImage src={item.image} hoverSrc={item.image} className=" rounded-xl w-40" />
-                    <p className='font-semibold text-center text-base px'> {item.name} </p>
+                    <p className='font-semibold text-center text-base px w-40'> {item.name} </p>
                     <p className='text-base font-normal text-center'> {formatter.format(item.price)} </p>
                   </div>
                 </Link>
@@ -174,14 +173,14 @@ const Body = () => {
 
       {show3 && (
         <div className='z-50 travelContent' onMouseLeave={dontShowHandler}>
-          <div className='flex flex-row'>
+          <div className='flex flex-row justify-center'>
             <div className='TravelStoreHold flex flex-row gap-16'>
-              {state.results.map((item) => {
+              {controller?.map((item) => {
                 return (
                   <Link to={`/${item.id}`} key={item.id}>
                     <div key={item.id} className="TravelIndivitual">
                       <HoverImage src={item.image} hoverSrc={item.image} className=" rounded-xl w-40" />
-                      <p className=' font-semibold text-base px'> {item.name} </p>
+                      <p className=' font-semibold text-base px w-40'> {item.name} </p>
                       <p className='text-base font-normal text-center'> {formatter.format(item.price)} </p>
                     </div>
                   </Link>
@@ -203,12 +202,12 @@ const Body = () => {
           </div>
 
           <div className='newTypeHold relative flex felx-row gap-10'>
-            {state.results.map((item) => {
+            {inverter?.map((item) => {
               return (
                 <Link to={`/${item.id}`} key={item.id}>
                   <div className='newIndivitual'>
                     <HoverImage src={item.image} hoverSrc={item.image} className=" rounded-xl w-40" />
-                    <p className='font-semibold text-center text-base px'> {item.name} </p>
+                    <p className='font-semibold text-center text-base px w-40'> {item.name} </p>
                     <p className='text-base font-normal text-center'> {formatter.format(item.price)} </p>
                   </div>
                 </Link>

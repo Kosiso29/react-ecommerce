@@ -65,7 +65,7 @@ const SinglePage = () => {
 
 //   const prodClicked = store.find((item) => item.id === id)
 
-  var { name, price, image: primaryImage, description } = prodClicked;
+  var { name, price, image: primaryImage, description, numReviews, rating} = prodClicked;
 
 
   let title = name;
@@ -96,10 +96,17 @@ const SinglePage = () => {
 
 
   let numOfRev = Math.floor(Math.random() * (4 - 4 + 1)) + 4;
-  let reviews = Math.floor(Math.random() * (999 - 100 + 1) + 100);
+  let reviews = Math.floor(Math.random() * (999 + 1) + 100);
 
+  const averageRating = numReviews !== null && numReviews !== undefined && numReviews !== 0
+  ? Math.floor(rating / numReviews)
+  : 0;
 
-    const toast = useToast()
+const reviewText = numReviews !== null && numReviews !== undefined && numReviews !== 0
+  ? `${numReviews} review${numReviews !== 1 ? 's' : ''} of ${averageRating} rating`
+  : '0 reviews';
+
+  const toast = useToast()
   
   return (
     <div className='singlePageMainParent relative top-36'>
@@ -145,11 +152,8 @@ const SinglePage = () => {
         {numOfRev === 4 ? <div className='flex'> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar />  </div> : ""}
         {numOfRev === 5 ? <div className='flex'> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar />  </div> : ""}
 
-        <p className='font-semibold l1rem'>{Math.floor(Math.random() * (999 - 100 + 1) + 100)} reviewes </p>
+        <p className='font-semibold l1rem'>{reviewText}</p>
       </div>
-
-
-      <p className='font-semibold text-md relative loyalty'> YOU CAN EARN 50 LOAYLTY POINTS </p>
 
       <div className='spBtnHold relative' onClick={() =>
         toast({
@@ -166,10 +170,11 @@ const SinglePage = () => {
       <div>
         <SinglePageFAQ description={description} />
       </div>
-
+      <br/><br/>
       <p className='fof text-4xl spText absolute text-center'> YOU MAY ALSO LIKE </p>
+      <br/><br/>
       <AutoPlayMethods />
-
+      
       <Review1 starCalc={numOfRev} rev={reviews} />
 
       <SearchBox />
@@ -178,9 +183,6 @@ const SinglePage = () => {
       <div className='jsParent'>
         <JournalSection />
       </div>
-
-   
-
 
 
       <div className='footerFeatures2 flex flex-row absolute'>

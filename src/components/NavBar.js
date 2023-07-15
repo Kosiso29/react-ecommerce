@@ -106,8 +106,8 @@ const NavBar = () => {
 
                     </ul>
 
-                    <Link to="/cart">
-                        <FaShoppingBag className=' text-2xl text-right ml-10 relative left-24' />
+                    <Link to="/cart" className=' text-2xl text-right ml-10 relative left-24' >
+                        <FaShoppingBag/> <h1>Cart</h1>
                     </Link>
                 </nav >
             </header >

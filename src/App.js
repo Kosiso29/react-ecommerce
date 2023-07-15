@@ -36,10 +36,10 @@ function App() {
           <Route path='/:id' exact element={<> <NavBar /> <MobileNav />  <SinglePage /> </>} />
           <Route path='/journal/april' element={<> <NavBar /> <MobileNav />  <JournalPage /> </>} />
           <Route path='/cart' exact element={<>  <NavBar /> <CartHold /></>} />
-          <Route path='/under20' element={<> <NavBar />  <Under20 /> </>} />
-          <Route path='/under40' element={<> <NavBar />  <Under10 /> </>} />
-          <Route path='/forher' element={<> <NavBar />  <ForHer /> </>} />
-          <Route path='/forhim' element={<> <NavBar />  <ForHim /> </>} />
+          <Route path='/panel' element={<> <NavBar />  <Under20 /> </>} />
+          <Route path='/inverter' element={<> <NavBar />  <Under10 /> </>} />
+          <Route path='/battery' element={<> <NavBar />  <ForHer /> </>} />
+          <Route path='/others' element={<> <NavBar />  <ForHim /> </>} />
         </Routes>
 
       </BrowserRouter>

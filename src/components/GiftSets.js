@@ -33,19 +33,19 @@ const GiftSets = () => {
 
             <div className='flex flex-col gap-8 bestSellerPriceHolder'>
 
-                <Link to={"/under20"} >
+                <Link to={"/panel"} >
                     <p className="hover:underline"> PANEL </p>
                 </Link>
 
-                <Link to={"/under40"} >
+                <Link to={"/inverter"} >
                     <p className="hover:underline"> INVERTER </p>
                 </Link>
 
-                <Link to={"/forher"} >
+                <Link to={"/battery"} >
                     <p className="hover:underline"> BATTERY </p>
                 </Link>
 
-                <Link to={"/forhim"} >
+                <Link to={"/others"} >
                     <p className="hover:underline"> OTHERS </p>
                 </Link>
 

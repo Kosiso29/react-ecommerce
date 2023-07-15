@@ -117,7 +117,7 @@ const Body = () => {
         <Link to={"/inverter"} className='travelHold w-52 lineHeight' onMouseMove={showHandler4}>
           <p className=' font-semibold hover-underline-animation'>INVERTER</p>
         </Link>
-        <Link to={"/others"} className='newHold lineHeight' onMouseMove={showHandler3}>
+        <Link to={"/controller"} className='newHold lineHeight' onMouseMove={showHandler3}>
           <p className=' font-semibold hover-underline-animation'>CONTROLLER</p>
         </Link>
       </div>

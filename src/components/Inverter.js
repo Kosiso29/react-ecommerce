@@ -25,7 +25,7 @@ import SPFooter from './SPFooter';
 
 
 
-const ForHer = () => {
+const Inverter = () => {
     const [filter, SetFilter] = useState(false);
 
     const [sort, SetSort] = useState(false);
@@ -93,40 +93,28 @@ const ForHer = () => {
 
     var bodyWashProducts = store.filter(product => product.type.includes("bodywash"));
 
+    var under40Products = store.filter(product => product.price > 16 && product.price < 40)
+
 
     const bgAddHandler = (e) => {
 
         e.target.classList.add("whi");
-      
+       
 
     }
 
     const bgRemoveHandler = (e) => {
         e.target.classList.remove("whi");
+        
+
+
     }
 
-    const productList = item => (
-        <div className='card w-96 bg-base-100 shadow-xl  '>
-            <Link to={`/${item.id}`}>
-                <figure className="px-10 pt-10">
-                    <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="w-32 u20img" />
-                </figure>
 
-            </Link>
-            <div className="card-body items-center text-center">
-                <h2 className=" mb-1 fof text-lg font-semibold">{item.name}</h2>
 
-                <Link to={`/${item.id}`}>
-                    <div className="card-actions">
-                        <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>Know More </button>
-                        {/* <p className='btnLine relative bg-black h-8'>  </p> */}
-                        <h2 className=" text-xl mb-2 fof u20Price">${item.price}</h2>
-                    </div>
-                </Link>
 
-            </div>
-        </div>
-    )
+
+
 
 
     return (
@@ -138,8 +126,8 @@ const ForHer = () => {
             </div>
 
             <div className='u20HeadingHold gap-20 justify-center relative flex flex-col'>
-                <p className='u20Heading'> BATTERY </p>
-                <p className='u20Desc'> Empowering energy independence, batteries store the sun's vitality to illuminate even the darkest hours.</p>
+                <p className='u20Heading'> INVERTER </p>
+                <p className='u20Desc'> Transforming solar energy into electrifying potential, the inverter empowers a seamless transition to renewable power.</p>
             </div>
 
             <div className='u20BreadCrumbHold absolute text-sm'>
@@ -150,7 +138,7 @@ const ForHer = () => {
 
 
                     <BreadcrumbItem>
-                        <Link to={`/`} href='#'>Battery</Link>
+                        <Link to={`/`} href='#'>Inverter</Link>
                     </BreadcrumbItem>
                 </Breadcrumb>
             </div>
@@ -172,16 +160,41 @@ const ForHer = () => {
                 </div>}
             </div>
 
-
+        
 
             { /* ALL PRODUCTS */}
 
 
             {allShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {store.map((item) => {
+                {under40Products.map((item) => {
 
                     if (item.type.includes("all")) {
-                        return productList(item)
+                        return (
+                            <div className='card w-96 bg-base-100 shadow-xl  '>
+                                <Link to={`/${item.id}`}>
+                                    <figure className="px-10 pt-10">
+                                        <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="w-32 u20img" />
+                                    </figure>
+
+                                </Link>
+                                <div className="card-body items-center text-center">
+                                    <h2 className=" mb-1 fof text-lg font-semibold">{item.name}</h2>
+
+
+                                    <Link to={`/${item.id}`}>
+                                        <div className="card-actions">
+                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>Know More </button>
+                                            <p className='btnLine relative bg-black h-8'>  </p>
+                                            <h2 className=" text-xl mb-2 fof u20Price">${item.price}</h2>
+                                        </div>
+                                    </Link>
+
+
+                                </div>
+                            </div>
+
+
+                        )
                     }
                 })}
             </div>
@@ -194,7 +207,27 @@ const ForHer = () => {
                 {bodyLotionProducts.map((item) => {
 
                     if (item.type.includes("all")) {
-                        return productList(item)
+                        return (
+                            <div className='card w-96 bg-base-100 shadow-xl  '>
+                                <Link to={`/${item.id}`}>
+                                    <figure className="px-10 pt-10">
+                                        <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="w-32 u20img" />
+                                    </figure>
+
+                                </Link>
+                                <div className="card-body items-center text-center">
+                                    <h2 className=" mb-1 fof text-lg font-semibold">{item.name}</h2>
+
+                                    <Link to={`/${item.id}`}>
+                                        <div className="card-actions">
+                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>Know More </button>
+                                            <p className='btnLine relative bg-black h-8'>  </p>
+                                            <h2 className=" text-xl mb-2 fof u20Price">${item.price}</h2>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
+                        )
                     }
                 })}
             </div>
@@ -207,7 +240,28 @@ const ForHer = () => {
                 {bodyWashProducts.map((item) => {
 
                     if (item.type.includes("all")) {
-                        return productList(item)
+                        return (
+                            <div className='card w-96 bg-base-100 shadow-xl  '>
+                                <Link to={`/${item.id}`}>
+                                    <figure className="px-10 pt-10">
+                                        <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="w-32 u20img" />
+                                    </figure>
+
+                                </Link>
+                                <div className="card-body items-center text-center">
+                                    <h2 className=" mb-1 fof text-lg font-semibold">{item.name}</h2>
+
+                                    <Link to={`/${item.id}`}>
+                                        <div className="card-actions">
+                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>Know More </button>
+                                            <p className='btnLine relative bg-black h-8'>  </p>
+                                            <h2 className=" text-xl mb-2 fof u20Price">${item.price}</h2>
+                                        </div>
+                                    </Link>
+
+                                </div>
+                            </div>
+                        )
 
                     }
                 })}
@@ -221,7 +275,29 @@ const ForHer = () => {
                 {bodyScrubProducts.map((item) => {
 
                     if (item.type.includes("all")) {
-                        return productList(item)
+                        return (
+                            <div className='card w-96 bg-base-100 shadow-xl  '>
+                                <Link to={`/${item.id}`}>
+                                    <figure className="px-10 pt-10">
+                                        <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="w-32 u20img" />
+                                    </figure>
+
+                                </Link>
+                                <div className="card-body items-center text-center">
+                                    <h2 className=" mb-1 fof text-lg font-semibold">{item.name}</h2>
+
+                                    <Link to={`/${item.id}`}>
+                                        <div className="card-actions">
+                                            <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>Know More </button>
+                                            <p className='btnLine relative bg-black h-8'>  </p>
+                                            <h2 className=" text-xl mb-2 fof u20Price">${item.price}</h2>
+                                        </div>
+                                    </Link>
+
+                                </div>
+
+                            </div>
+                        )
 
                     }
                 })}
@@ -268,5 +344,4 @@ const ForHer = () => {
 }
 
 
-export default ForHer;
-
+export default Inverter;

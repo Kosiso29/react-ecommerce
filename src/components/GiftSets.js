@@ -45,8 +45,8 @@ const GiftSets = () => {
                     <p className="hover:underline"> BATTERY </p>
                 </Link>
 
-                <Link to={"/others"} >
-                    <p className="hover:underline"> OTHERS </p>
+                <Link to={"/controller"} >
+                    <p className="hover:underline w-40"> CONTROLLER </p>
                 </Link>
 
             </div>

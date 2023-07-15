@@ -17,10 +17,10 @@ import FollowONIG from './components/FollowONIG';
 import Products from './components/Products';
 import CartHold from './components/CartHold';
 import SPFooter from './components/SPFooter';
-import Under20 from './components/Under20';
-import Under10 from './components/Under10';
-import ForHer from './components/ForHer';
-import ForHim from './components/ForHim';
+import Panel from './components/Panel';
+import Inverter from './components/Inverter';
+import Battery from './components/Battery';
+import Controller from './components/Controller';
 import MobileNav from './components/MobileNav';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -36,10 +36,10 @@ function App() {
           <Route path='/:id' exact element={<> <NavBar /> <MobileNav />  <SinglePage /> </>} />
           <Route path='/journal/april' element={<> <NavBar /> <MobileNav />  <JournalPage /> </>} />
           <Route path='/cart' exact element={<>  <NavBar /> <CartHold /></>} />
-          <Route path='/panel' element={<> <NavBar />  <Under20 /> </>} />
-          <Route path='/inverter' element={<> <NavBar />  <Under10 /> </>} />
-          <Route path='/battery' element={<> <NavBar />  <ForHer /> </>} />
-          <Route path='/others' element={<> <NavBar />  <ForHim /> </>} />
+          <Route path='/panel' element={<> <NavBar />  <Panel /> </>} />
+          <Route path='/inverter' element={<> <NavBar />  <Inverter /> </>} />
+          <Route path='/battery' element={<> <NavBar />  <Battery /> </>} />
+          <Route path='/controller' element={<> <NavBar />  <Controller /> </>} />
         </Routes>
 
       </BrowserRouter>

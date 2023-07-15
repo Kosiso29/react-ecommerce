@@ -25,7 +25,7 @@ import SPFooter from './SPFooter';
 
 
 
-const ForHim = () => {
+const Controller = () => {
     const [filter, SetFilter] = useState(false);
 
     const [sort, SetSort] = useState(false);
@@ -118,7 +118,7 @@ const ForHim = () => {
             </div>
 
             <div className='u20HeadingHold gap-20 justify-center relative flex flex-col'>
-                <p className='u20Heading'> OTHERS </p>
+                <p className='u20Heading'> CONTROLLERS </p>
                 <p className='u20Desc'> Embrace the brilliance of a complete solar system, where sunlight becomes the foundation of sustainable energy for a brighter future.</p>
             </div>
 
@@ -336,4 +336,4 @@ const ForHim = () => {
 }
 
 
-export default ForHim;
+export default Controller;

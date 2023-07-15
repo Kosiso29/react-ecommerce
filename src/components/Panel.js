@@ -25,7 +25,7 @@ import SPFooter from './SPFooter';
 
 
 
-const Under20 = () => {
+const Panel = () => {
     const [filter, SetFilter] = useState(false);
 
     const [sort, SetSort] = useState(false);
@@ -365,6 +365,6 @@ const Under20 = () => {
 }
 
 
-export default Under20;
+export default Panel;
 
 

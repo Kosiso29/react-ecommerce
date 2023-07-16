@@ -25,7 +25,7 @@ import SPFooter from './SPFooter';
 
 
 
-const Battery = ({ title, description, options = ["100AH", "180AH", "200AH"] }) => {
+const ProductCategory = ({ title, description, category_id, options }) => {
     const [filter, SetFilter] = useState(false);
 
     const [dataObject, setDataObject] = useState({ "All Products": [] });
@@ -33,9 +33,9 @@ const Battery = ({ title, description, options = ["100AH", "180AH", "200AH"] }) 
     const [_, setUpdateComponent] = useState(false);
 
     const getData = async (option) => {
-        let url = "http://solarsales.pythonanywhere.com/products/products/productlist/category=1/?ordering=-ratings";
+        let url = `http://solarsales.pythonanywhere.com/products/products/productlist/category=${category_id}/?ordering=-ratings`;
         if (option) {
-            url = `http://solarsales.pythonanywhere.com/products/products/productlist/category=1/?ordering=-ratings&search=${option}`;
+            url = `http://solarsales.pythonanywhere.com/products/products/productlist/category=${category_id}/?ordering=-ratings&search=${option}`;
         }
         await new Promise((resolve, reject) => {
             fetch(url)
@@ -77,11 +77,14 @@ const Battery = ({ title, description, options = ["100AH", "180AH", "200AH"] }) 
     }
 
     useEffect(() => {
+        setDataObject({ "All Products": [] });
+        setCurrentFilterState("All Products");
+        SetFilter(false)
         getData();
         for (const option of options) {
             getData(option);
         }
-    }, [])
+    }, [category_id])
 
     const productList = item => (
         <div className='card w-96 bg-base-100 shadow-xl  '>
@@ -116,8 +119,8 @@ const Battery = ({ title, description, options = ["100AH", "180AH", "200AH"] }) 
             </div>
 
             <div className='u20HeadingHold gap-20 justify-center relative flex flex-col'>
-                <p className='u20Heading'> {title || "BATTERY"} </p>
-                <p className='u20Desc'> { description || "Empowering energy independence, batteries store the sun's vitality to illuminate even the darkest hours." }</p>
+                <p className='u20Heading'> {title} </p>
+                <p className='u20Desc'> { description }</p>
             </div>
 
             <div className='u20BreadCrumbHold absolute text-sm'>
@@ -128,7 +131,7 @@ const Battery = ({ title, description, options = ["100AH", "180AH", "200AH"] }) 
 
 
                     <BreadcrumbItem>
-                        <Link to={`/battery`} href='#'>{title || "BATTERY"}</Link>
+                        <Link to={`/${title.toLowerCase()}`} href='#'>{title}</Link>
                     </BreadcrumbItem>
                 </Breadcrumb>
             </div>
@@ -200,5 +203,5 @@ const Battery = ({ title, description, options = ["100AH", "180AH", "200AH"] }) 
 }
 
 
-export default Battery;
+export default ProductCategory;
 

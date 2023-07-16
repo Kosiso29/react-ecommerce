@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import u20bg from "../assets/u20bg.png";
 import "../styles/Under20.css";
 import {
@@ -30,15 +30,31 @@ const Battery = () => {
 
     const [sort, SetSort] = useState(false);
 
-    const [bodyLotionShow, SetBodyLotionShow] = useState(false);
+    const [bodyLotionShow, SetBodyLotionShow] = useState(true);
 
     const [bodyScrubShow, SetBodyScrubShow] = useState(false);
 
     const [bodyWashShow, SetBodyWashShow] = useState(false);
 
-    const [allShow, SetAllShow] = useState(true);
+    const [controllerShow, setControllerShow] = useState(false);
 
     const [lowTOHigh, SetLowTOHigh] = useState(false);
+    const [panel, setPanel] = useState([]);
+    const [battery, setBattery] = useState([]);
+    const [inverter, setInverter] = useState([]);
+    const [controller, setController] = useState([]);
+
+    const getData = async (category_id, setItem) => {
+        await new Promise((resolve, reject) => {
+            fetch(`http://solarsales.pythonanywhere.com/products/products/productlist/category=${category_id}/`)
+                .then(response => response.json())
+                .then(data => {
+                    setItem(data.results)
+                    resolve()
+            }).catch(() => reject())
+        })
+    }
+
 
 
 
@@ -55,7 +71,7 @@ const Battery = () => {
 
     const bodyLotionHandler = () => {
         SetBodyLotionShow(true);
-        SetAllShow(false)
+        setControllerShow(false)
 
         SetBodyScrubShow(false);
         SetBodyWashShow(false);
@@ -63,7 +79,7 @@ const Battery = () => {
 
     const bodyScrubHandler = () => {
         SetBodyScrubShow(true)
-        SetAllShow(false)
+        setControllerShow(false)
 
         SetBodyLotionShow(false);
         SetBodyWashShow(false)
@@ -71,14 +87,14 @@ const Battery = () => {
 
     const bodyWashHandler = () => {
         SetBodyWashShow(true)
-        SetAllShow(false)
+        setControllerShow(false)
 
         SetBodyLotionShow(false)
         SetBodyScrubShow(false)
     }
 
     const allShowHandler = () => {
-        SetAllShow(true)
+        setControllerShow(true)
 
         SetBodyWashShow(false)
         SetBodyLotionShow(false)
@@ -87,11 +103,11 @@ const Battery = () => {
 
 
 
-    var bodyLotionProducts = store.filter(product => product.type.includes('bodyLotion'));
+    // var bodyLotionProducts = store.filter(product => product.type.includes('bodyLotion'));
 
-    var bodyScrubProducts = store.filter(produt => produt.type.includes("bodyScrub"));
+    // var bodyScrubProducts = store.filter(produt => produt.type.includes("bodyScrub"));
 
-    var bodyWashProducts = store.filter(product => product.type.includes("bodywash"));
+    // var bodyWashProducts = store.filter(product => product.type.includes("bodywash"));
 
 
     const bgAddHandler = (e) => {
@@ -105,11 +121,18 @@ const Battery = () => {
         e.target.classList.remove("whi");
     }
 
+    useEffect(() => {
+        getData(2, setPanel);
+        getData(1, setBattery);
+        getData(5, setInverter);
+        getData(3, setController);
+    }, [])
+
     const productList = item => (
         <div className='card w-96 bg-base-100 shadow-xl  '>
             <Link to={`/${item.id}`}>
                 <figure className="px-10 pt-10">
-                    <HoverImage src={item.primaryImage} hoverSrc={item.hoverImg} className="w-32 u20img" />
+                    <HoverImage src={item.image} hoverSrc={item.image} className="w-32 u20img" />
                 </figure>
 
             </Link>
@@ -117,10 +140,10 @@ const Battery = () => {
                 <h2 className=" mb-1 fof text-lg font-semibold">{item.name}</h2>
 
                 <Link to={`/${item.id}`}>
-                    <div className="card-actions">
+                    <div className="card-actions flex justify-center">
                         <button className="btn btn-primary knmBtn" onMouseEnter={bgAddHandler} onMouseLeave={bgRemoveHandler}>Know More </button>
                         {/* <p className='btnLine relative bg-black h-8'>  </p> */}
-                        <h2 className=" text-xl mb-2 fof u20Price">${item.price}</h2>
+                        <h2 className="text-xl mb-2 fof u20Price flex justify-center">₦{item.price}</h2>
                     </div>
                 </Link>
 
@@ -164,10 +187,10 @@ const Battery = () => {
 
             <div className='filterOptionsHold  relative'>
                 {filter && <div className='flex rounded-xl gap-8 flex-col boxSh fof absolute '>
-                    <p className='ml-12 scale cursor-pointer scale' onClick={bodyLotionHandler}> Body Lotion</p>
-                    <p className='ml-12 scale cursor-pointer' onClick={bodyWashHandler}> Body Wash </p>
-                    <p className='ml-12 scale cursor-pointer' onClick={bodyScrubHandler}> Body Scrub </p>
-                    <p className='ml-12 scale cursor-pointer text-white' onClick={allShowHandler}> All Products </p>
+                    <p className='ml-12 scale cursor-pointer scale' onClick={bodyLotionHandler}> Battery</p>
+                    <p className='ml-12 scale cursor-pointer' onClick={bodyWashHandler}> Panel </p>
+                    <p className='ml-12 scale cursor-pointer' onClick={bodyScrubHandler}> Inverter </p>
+                    <p className='ml-12 scale cursor-pointer text-white' onClick={allShowHandler}> Controller </p>
 
                 </div>}
             </div>
@@ -177,13 +200,8 @@ const Battery = () => {
             { /* ALL PRODUCTS */}
 
 
-            {allShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {store.map((item) => {
-
-                    if (item.type.includes("all")) {
-                        return productList(item)
-                    }
-                })}
+            {controllerShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
+                {controller.map((item) => productList(item))}
             </div>
             }
 
@@ -191,12 +209,7 @@ const Battery = () => {
             {/* BODY LOTION  */}
 
             {bodyLotionShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {bodyLotionProducts.map((item) => {
-
-                    if (item.type.includes("all")) {
-                        return productList(item)
-                    }
-                })}
+                {battery.map((item) => productList(item))}
             </div>
             }
 
@@ -204,13 +217,7 @@ const Battery = () => {
             {/* BODY WASH */}
 
             {bodyWashShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {bodyWashProducts.map((item) => {
-
-                    if (item.type.includes("all")) {
-                        return productList(item)
-
-                    }
-                })}
+                {panel.map((item) => productList(item))}
             </div>
             }
 
@@ -218,13 +225,7 @@ const Battery = () => {
             { /* BODY SCRUB */}
 
             {bodyScrubShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {bodyScrubProducts.map((item) => {
-
-                    if (item.type.includes("all")) {
-                        return productList(item)
-
-                    }
-                })}
+                {inverter.map((item) => productList(item))}
 
 
             </div>

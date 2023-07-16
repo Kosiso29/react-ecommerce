@@ -136,7 +136,7 @@
 
 .whi {
     color: white !important;
-    padding-left: 5rem !important;
+    /* padding-left: 5rem !important; */
     transition: all 400ms ease;
 
 }
@@ -166,7 +166,7 @@
 .u20Price {
     position: relative;
     top: 0.7rem;
-    left: -4.4rem;
+    /* left: -4.4rem; */
     font-size: 18px;
 
 }

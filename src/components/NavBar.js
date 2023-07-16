@@ -7,7 +7,7 @@ import GiftSets from './GiftSets';
 import Body from './Body';
 import { FaShoppingBag } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import trolley from "../assets/trolley.png";
 
 const NavBar = () => {
     const [show, setShow] = useState(false);
@@ -66,7 +66,7 @@ const NavBar = () => {
                 <nav class="navigationBar" role="navigation" aria-label="menu">
 
                     <Link to="/">
-                        <img src={logo} className="ml-32 img" />
+                        <img src={logo} className="ml-32 img" alt='logo'/>
                     </Link>
 
                     <ul class="menuNav">
@@ -94,10 +94,17 @@ const NavBar = () => {
 
 
                         <li class="dropdown nav-link nav-link-fade-up" onMouseOver={showHandler3} >
-                            SHOP RANGE
+                            QUICK FILTER
                             {show3 && <ul class="dropdown-nav dropdown-nav3" onMouseLeave={dontShowHandler}>
                                 <Body />
                             </ul>}
+
+                        </li>
+                        <li class="dropdown nav-link nav-link-fade-up"git  onMouseOver={showHandler3} >
+                            PROFILE
+                            {/* {show3 && <ul class="dropdown-nav dropdown-nav3" onMouseLeave={dontShowHandler}>
+                                <Body />
+                            </ul>} */}
 
                         </li>
 
@@ -106,8 +113,8 @@ const NavBar = () => {
 
                     </ul>
 
-                    <Link to="/cart" className=' text-2xl text-right ml-10 relative left-24' >
-                        <FaShoppingBag/> <h1>Cart</h1>
+                    <Link to="/cart" className='nav-link text-2xl text-right ml-10 relative left-24 zoom2' >
+                        <img src={trolley} width='50px' alt='Cart'/><h1>cart</h1>
                     </Link>
                 </nav >
             </header >
@@ -119,8 +126,6 @@ const NavBar = () => {
 }
 
 export default NavBar
-
-
 
 
 

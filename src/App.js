@@ -17,10 +17,7 @@ import FollowONIG from './components/FollowONIG';
 import Products from './components/Products';
 import CartHold from './components/CartHold';
 import SPFooter from './components/SPFooter';
-import Panel from './components/Panel';
-import Inverter from './components/Inverter';
 import ProductCategory from './components/ProductCategory';
-import Controller from './components/Controller';
 import MobileNav from './components/MobileNav';
 
 import 'bootstrap/dist/css/bootstrap.min.css'

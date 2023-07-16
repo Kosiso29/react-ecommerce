@@ -25,31 +25,31 @@ import SPFooter from './SPFooter';
 
 
 
-const Battery = () => {
+const Battery = ({ title, description, options = ["100AH", "180AH", "200AH"] }) => {
     const [filter, SetFilter] = useState(false);
 
-    const [sort, SetSort] = useState(false);
+    const [dataObject, setDataObject] = useState({ "All Products": [] });
+    const [currentFilterState, setCurrentFilterState] = useState("All Products");
+    const [_, setUpdateComponent] = useState(false);
 
-    const [bodyLotionShow, SetBodyLotionShow] = useState(true);
-
-    const [bodyScrubShow, SetBodyScrubShow] = useState(false);
-
-    const [bodyWashShow, SetBodyWashShow] = useState(false);
-
-    const [controllerShow, setControllerShow] = useState(false);
-
-    const [lowTOHigh, SetLowTOHigh] = useState(false);
-    const [panel, setPanel] = useState([]);
-    const [battery, setBattery] = useState([]);
-    const [inverter, setInverter] = useState([]);
-    const [controller, setController] = useState([]);
-
-    const getData = async (category_id, setItem) => {
+    const getData = async (option) => {
+        let url = "http://solarsales.pythonanywhere.com/products/products/productlist/category=1/?ordering=-ratings";
+        if (option) {
+            url = `http://solarsales.pythonanywhere.com/products/products/productlist/category=1/?ordering=-ratings&search=${option}`;
+        }
         await new Promise((resolve, reject) => {
-            fetch(`http://solarsales.pythonanywhere.com/products/products/productlist/category=${category_id}/`)
+            fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    setItem(data.results)
+                    setDataObject(prevState => {
+                        if (option) {
+                            prevState[option] = data.results;
+                            return prevState;
+                        }
+                        prevState["All Products"] = data.results;
+                        return prevState;
+                    })
+                    setUpdateComponent(prevState => !prevState);
                     resolve()
             }).catch(() => reject())
         })
@@ -64,51 +64,6 @@ const Battery = () => {
 
     }
 
-    const toggleSortHandler = () => {
-        SetSort(!sort)
-    }
-
-
-    const bodyLotionHandler = () => {
-        SetBodyLotionShow(true);
-        setControllerShow(false)
-
-        SetBodyScrubShow(false);
-        SetBodyWashShow(false);
-    }
-
-    const bodyScrubHandler = () => {
-        SetBodyScrubShow(true)
-        setControllerShow(false)
-
-        SetBodyLotionShow(false);
-        SetBodyWashShow(false)
-    }
-
-    const bodyWashHandler = () => {
-        SetBodyWashShow(true)
-        setControllerShow(false)
-
-        SetBodyLotionShow(false)
-        SetBodyScrubShow(false)
-    }
-
-    const allShowHandler = () => {
-        setControllerShow(true)
-
-        SetBodyWashShow(false)
-        SetBodyLotionShow(false)
-        SetBodyScrubShow(false)
-    }
-
-
-
-    // var bodyLotionProducts = store.filter(product => product.type.includes('bodyLotion'));
-
-    // var bodyScrubProducts = store.filter(produt => produt.type.includes("bodyScrub"));
-
-    // var bodyWashProducts = store.filter(product => product.type.includes("bodywash"));
-
 
     const bgAddHandler = (e) => {
 
@@ -122,10 +77,10 @@ const Battery = () => {
     }
 
     useEffect(() => {
-        getData(2, setPanel);
-        getData(1, setBattery);
-        getData(5, setInverter);
-        getData(3, setController);
+        getData();
+        for (const option of options) {
+            getData(option);
+        }
     }, [])
 
     const productList = item => (
@@ -161,8 +116,8 @@ const Battery = () => {
             </div>
 
             <div className='u20HeadingHold gap-20 justify-center relative flex flex-col'>
-                <p className='u20Heading'> BATTERY </p>
-                <p className='u20Desc'> Empowering energy independence, batteries store the sun's vitality to illuminate even the darkest hours.</p>
+                <p className='u20Heading'> {title || "BATTERY"} </p>
+                <p className='u20Desc'> { description || "Empowering energy independence, batteries store the sun's vitality to illuminate even the darkest hours." }</p>
             </div>
 
             <div className='u20BreadCrumbHold absolute text-sm'>
@@ -173,7 +128,7 @@ const Battery = () => {
 
 
                     <BreadcrumbItem>
-                        <Link to={`/`} href='#'>Battery</Link>
+                        <Link to={`/battery`} href='#'>{title || "BATTERY"}</Link>
                     </BreadcrumbItem>
                 </Breadcrumb>
             </div>
@@ -187,10 +142,16 @@ const Battery = () => {
 
             <div className='filterOptionsHold  relative'>
                 {filter && <div className='flex rounded-xl gap-8 flex-col boxSh fof absolute '>
-                    <p className='ml-12 scale cursor-pointer scale' onClick={bodyLotionHandler}> Battery</p>
-                    <p className='ml-12 scale cursor-pointer' onClick={bodyWashHandler}> Panel </p>
-                    <p className='ml-12 scale cursor-pointer' onClick={bodyScrubHandler}> Inverter </p>
-                    <p className='ml-12 scale cursor-pointer text-white' onClick={allShowHandler}> Controller </p>
+                    {
+                        Object.keys(dataObject)?.map(filterKey => {
+                            if (filterKey === "All Products") {
+                                return null;
+                            }
+                            return <p className='ml-12 scale cursor-pointer' onClick={() => { setCurrentFilterState(filterKey) }}> {filterKey} </p>
+                        }).filter(data => data)
+                    }
+                    <p className='ml-12 scale cursor-pointer text-white' onClick={() => { setCurrentFilterState("All Products") }}> All Products </p>
+                    
 
                 </div>}
             </div>
@@ -200,40 +161,10 @@ const Battery = () => {
             { /* ALL PRODUCTS */}
 
 
-            {controllerShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {controller.map((item) => productList(item))}
+            {<div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
+                {dataObject[currentFilterState]?.map((item) => productList(item))}
             </div>
             }
-
-
-            {/* BODY LOTION  */}
-
-            {bodyLotionShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {battery.map((item) => productList(item))}
-            </div>
-            }
-
-
-            {/* BODY WASH */}
-
-            {bodyWashShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {panel.map((item) => productList(item))}
-            </div>
-            }
-
-
-            { /* BODY SCRUB */}
-
-            {bodyScrubShow && <div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
-                {inverter.map((item) => productList(item))}
-
-
-            </div>
-            }
-
-            {/* <div className='u20Js relative'>
-                <JournalSection />
-            </div> */}
 
             <div className='u20Featyres relative'>
 

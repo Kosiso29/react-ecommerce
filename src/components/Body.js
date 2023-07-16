@@ -90,7 +90,6 @@ const Body = () => {
           reject();
         });
     });
-    console.log('item', panel, battery, inverter);
   };
   const formatter = new Intl.NumberFormat('en-NG', {
     style: 'currency',

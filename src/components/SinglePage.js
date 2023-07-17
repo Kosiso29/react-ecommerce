@@ -170,9 +170,9 @@ const reviewText = numReviews !== null && numReviews !== undefined && numReviews
       <div>
         <SinglePageFAQ description={description} />
       </div>
-      <br/><br/>
+      {/* <br/><br/> */}
       <p className='fof text-4xl spText absolute text-center'> YOU MAY ALSO LIKE </p>
-      <br/><br/>
+      {/* <br/><br/> */}
       <AutoPlayMethods />
       
       <Review1 starCalc={numOfRev} rev={reviews} />
@@ -180,9 +180,9 @@ const reviewText = numReviews !== null && numReviews !== undefined && numReviews
       <SearchBox />
 
 
-      <div className='jsParent'>
+      {/* <div className='jsParent'>
         <JournalSection />
-      </div>
+      </div> */}
 
 
       <div className='footerFeatures2 flex flex-row absolute'>

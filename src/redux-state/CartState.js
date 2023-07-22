@@ -29,6 +29,7 @@ const cartSlice = createSlice({
                 existingItem.quantity++;
                 existingItem.totalPrice = existingItem.totalPrice + newItem.price
             }
+            localStorage.setItem('items', JSON.stringify(state.items));
         },
 
         removeItemFromCart(state, action) {
@@ -43,17 +44,12 @@ const cartSlice = createSlice({
             }
         },
 
-        // testAPI(state, action) {
-        //     const id = action.payload;
-        //     const existingItem = state.items.find(item => item.id === id);
-        //     state.totalQuantity--;
-        //     if (existingItem.quantity === 1) {
-        //         state.items = state.items.filter(item => item.id !== id);
-        //     } else {
-        //         existingItem.quantity--;
-        //         existingItem.totalPrice = existingItem.totalPrice - existingItem.price;
-        //     }
-        // },
+        updateItemsOnCart(state) {
+            let items = localStorage.getItem('items');
+            if (items) {
+                state.items = JSON.parse(items);
+            }
+        },
     }
 })
 

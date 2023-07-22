@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBar from './components/NavBar';
 import Body from './components/Body';
 import SimpleSlider from './components/HeroCarousel';
@@ -19,10 +19,17 @@ import CartHold from './components/CartHold';
 import SPFooter from './components/SPFooter';
 import ProductCategory from './components/ProductCategory';
 import MobileNav from './components/MobileNav';
+import { useDispatch } from "react-redux";
+import { cartActions } from "./redux-state/CartState";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(cartActions.updateItemsOnCart())
+    }, [])
 
     return (
         <div className="App">

@@ -8,6 +8,7 @@ import Body from './Body';
 import { FaShoppingBag } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import trolley from "../assets/trolley.png";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
     const [show, setShow] = useState(false);
@@ -15,6 +16,13 @@ const NavBar = () => {
     const [show3, setShow3] = useState(false);
     const [show4, setShow4] = useState(false);
 
+    const getNumberOfItemsOnCart = (items) => {
+        let numberOfItemsOnCart = 0;
+        items.forEach(item => numberOfItemsOnCart = numberOfItemsOnCart + item.quantity);
+        return numberOfItemsOnCart;
+    }
+
+    const numberOfItemsOnCart = useSelector(state => getNumberOfItemsOnCart(state.cart.items));
 
     const showHandler = () => {
         setShow(true)
@@ -114,7 +122,7 @@ const NavBar = () => {
                     </ul>
 
                     <Link to="/cart" className='nav-link text-2xl text-right ml-10 relative left-24 zoom2' >
-                        <img src={trolley} width='50px' alt='Cart'/><h1>cart</h1>
+                        <img src={trolley} width='50px' alt='Cart' /><h1 className='cart-items-title'>cart<span className='cart-items-number'>{ numberOfItemsOnCart }</span></h1>
                     </Link>
                 </nav >
             </header >

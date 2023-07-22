@@ -59,8 +59,7 @@ const OurBestSellers = (props) => {
                                 description: "Successfully Added",
                                 status: 'success',
                                 duration: 1500,
-                                isClosable: true,
-                                position: 'top-right'
+                                isClosable: true
                             })
                         }>
                             <button className="btn btn-danger" onClick={addItemToCartHandler}>Add to cart</button>

@@ -14,6 +14,24 @@
     min-height: 6rem;
 }
 
+.cart-items-title {
+    position: relative;
+}
+
+.cart-items-number {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -1.2rem;
+    right: -1rem;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 .logo {
   display: inline-block;
   padding: 0.5rem;
@@ -147,8 +165,11 @@ li {
   margin: 0px 20px;
   display: inline-block;
   position: relative;
-  opacity: 0.75;
   padding: 1.8rem !important;
+}
+
+.nav-link img {
+    opacity: 0.75;
 }
 
 .nav-link-fade-up:hover::before {
@@ -162,7 +183,7 @@ li {
   opacity: 0;
 }
 
-.nav-link:hover {
+.nav-link:hover img {
   opacity: 1;
 }
 

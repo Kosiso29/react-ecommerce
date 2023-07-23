@@ -108,102 +108,136 @@ const reviewText = numReviews !== null && numReviews !== undefined && numReviews
 
   const toast = useToast()
   
-  return (
-    <div className='singlePageMainParent relative top-36'>
-
-      <div className="bgGrey h-14 sinLih">
-        <BreadCrumb name={title} />
+    return (
+        <div>
+            <div className="bgGrey h-14 sinLih">
+                <BreadCrumb name={title} />
+            </div>
+            <div className='product-detail'>
+                <img src={image} className="product-image-1" alt="" />
+                <img src={image} className="product-image-2" alt="" />
+                <img src={image} className="product-image-main" alt="" />
+                <div className='product-detail-cart'>
+                    <div className='product-detail-header'>
+                        <p className='font-semibold text-xl w-80'> {name} Bag </p>
+                        <p className='text-xl'> ₦{price} </p>
+                        <hr style={{width: "100%"}} />
+                    </div>
+                    <div className='product-detail-cart-button'>
+                        <div className='relative' onClick={() =>
+                            toast({
+                            title: '',
+                            description: "Successfully Added",
+                            status: 'success',
+                            duration: 1500,
+                            isClosable: true,
+                            })
+                        }>
+                            <button className='spAddTOCart' onClick={addItemToCartHandler}> ADD TO CART </button>
+                        </div>
+                    </div>
+                    <div>
+                        <SinglePageFAQ description={description} />
+                    </div>
+                </div>
+            </div>
+            <SPFooter />
       </div>
+    // <div className='singlePageMainParent relative top-36'>
+
+    //   <div className="bgGrey h-14 sinLih">
+    //     <BreadCrumb name={title} />
+    //   </div>
 
 
 
-      <figure className='singlePageMainPicHold relative'>
-        {imgChnage === true ? <img src={image} className=" w-48 cursor-pointer rounded-2xl object-cover singlePageMainPic" /> : <img src={image} className=" w-48 cursor-pointer rounded-2xl object-cover singlePageMainPic" />}
-      </figure>
-
-
-
-
-      <div className='sideImageHold flex flex-col relative gap-12'>
-        <img src={image} className=" w-64 cursor-pointer  object-cover" onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
-        <img src={image} className='w-64 cursor-pointer rounded-lg object-cover' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
-      </div>
-
-      <div className='bottomImgHold flex flex-row relative gap-8'>
-        <img src={image} className=' w-80 si cursor-pointer object-cover' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
-        <img src={image} className=' w-80 si cursor-pointer object-cover' id='mobileDontSHow' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
-      </div>
-
-
-      <div className='namePriceSP relative fof flex flex-col gap-6'>
-        <p className='font-semibold text-xl w-80'> {name} </p>
-        <p className='text-xl sp relative'> ₦{price} </p>
-      </div>
-
-      <p className='relative singleLinetop text-gray-300'> ___________________________________________________________________  </p>
+    //   <figure className='singlePageMainPicHold relative'>
+    //     {imgChnage === true ? <img src={image} className=" w-48 cursor-pointer rounded-2xl object-cover singlePageMainPic" /> : <img src={image} className=" w-48 cursor-pointer rounded-2xl object-cover singlePageMainPic" />}
+    //   </figure>
 
 
 
 
-      <div className=' relative gap-2 flex starHold'>
-        {numOfRev === 1 ? <div className='flex'>  <AiFillStar /> </div> : ""}
-        {numOfRev === 2 ? <div className='flex'> <AiFillStar /> <AiFillStar />  </div> : ""}
-        {numOfRev === 3 ? <div className='flex'> <AiFillStar /> <AiFillStar /> <AiFillStar />  </div> : ""}
-        {numOfRev === 4 ? <div className='flex'> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar />  </div> : ""}
-        {numOfRev === 5 ? <div className='flex'> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar />  </div> : ""}
+    //   <div className='sideImageHold flex flex-col relative gap-12'>
+    //     <img src={image} className=" w-64 cursor-pointer  object-cover" onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
+    //     <img src={image} className='w-64 cursor-pointer rounded-lg object-cover' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
+    //   </div>
 
-        <p className='font-semibold l1rem'>{reviewText}</p>
-      </div>
+    //   <div className='bottomImgHold flex flex-row relative gap-8'>
+    //     <img src={image} className=' w-80 si cursor-pointer object-cover' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
+    //     <img src={image} className=' w-80 si cursor-pointer object-cover' id='mobileDontSHow' onMouseEnter={imgSrcTarget} onMouseLeave={defaultImageSrc} />
+    //   </div>
 
-      <div className='spBtnHold relative' onClick={() =>
-        toast({
-          title: '',
-          description: "Successfully Added",
-          status: 'success',
-          duration: 1500,
-          isClosable: true,
-        })
-      }>
-        <button className='spAddTOCart' onClick={addItemToCartHandler}> ADD TO CART </button>
-      </div>
 
-      <div>
-        <SinglePageFAQ description={description} />
-      </div>
-      {/* <br/><br/> */}
-      <p className='fof text-4xl spText absolute text-center'> YOU MAY ALSO LIKE </p>
-      {/* <br/><br/> */}
-      <AutoPlayMethods />
+    //   <div className='namePriceSP relative fof flex flex-col gap-6'>
+    //     <p className='font-semibold text-xl w-80'> {name} </p>
+    //     <p className='text-xl sp relative'> ₦{price} </p>
+    //   </div>
+
+    //   <p className='relative singleLinetop text-gray-300'> ___________________________________________________________________  </p>
+
+
+
+
+    //   <div className=' relative gap-2 flex starHold'>
+    //     {numOfRev === 1 ? <div className='flex'>  <AiFillStar /> </div> : ""}
+    //     {numOfRev === 2 ? <div className='flex'> <AiFillStar /> <AiFillStar />  </div> : ""}
+    //     {numOfRev === 3 ? <div className='flex'> <AiFillStar /> <AiFillStar /> <AiFillStar />  </div> : ""}
+    //     {numOfRev === 4 ? <div className='flex'> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar />  </div> : ""}
+    //     {numOfRev === 5 ? <div className='flex'> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar />  </div> : ""}
+
+    //     <p className='font-semibold l1rem'>{reviewText}</p>
+    //   </div>
+
+    //   <div className='spBtnHold relative' onClick={() =>
+    //     toast({
+    //       title: '',
+    //       description: "Successfully Added",
+    //       status: 'success',
+    //       duration: 1500,
+    //       isClosable: true,
+    //     })
+    //   }>
+    //     <button className='spAddTOCart' onClick={addItemToCartHandler}> ADD TO CART </button>
+    //   </div>
+
+    //   <div>
+    //     <SinglePageFAQ description={description} />
+    //   </div>
+    //   {/* <br/><br/> */}
+    //   <p className='fof text-4xl spText absolute text-center'> YOU MAY ALSO LIKE </p>
+    //   {/* <br/><br/> */}
+    //   <AutoPlayMethods />
       
-      <Review1 starCalc={numOfRev} rev={reviews} />
+    //   <Review1 starCalc={numOfRev} rev={reviews} />
 
-      <SearchBox />
-
-
-      {/* <div className='jsParent'>
-        <JournalSection />
-      </div> */}
+    //   <SearchBox />
 
 
-      <div className='footerFeatures2 flex flex-row absolute'>
-        <FaShippingFast className='w-16 h-20 sv' />
-        <FaLock className='w-12 h-16 sv2' />
-        <BsCurrencyDollar className='w-16 h-20 sv' />
-        <GiCardboardBoxClosed className='w-16 h-20 sv' />
-      </div>
+    //   {/* <div className='jsParent'>
+    //     <JournalSection />
+    //   </div> */}
 
-      <div className='footerFeatures2TextHold fof flex flex-row absolute uppercase'>
-        <p> 2 DAY DELIVERY </p>
-        <p> secure checkout </p>
-        <p> royalty points </p>
-        <p className='ml'> easy returns </p>
-      </div>
 
-      <div className='spfooterHold absolute'>
-        <SPFooter />
-      </div>
+    //   <div className='footerFeatures2 flex flex-row absolute'>
+    //     <FaShippingFast className='w-16 h-20 sv' />
+    //     <FaLock className='w-12 h-16 sv2' />
+    //     <BsCurrencyDollar className='w-16 h-20 sv' />
+    //     <GiCardboardBoxClosed className='w-16 h-20 sv' />
+    //   </div>
 
-    </div>
+    //   <div className='footerFeatures2TextHold fof flex flex-row absolute uppercase'>
+    //     <p> 2 DAY DELIVERY </p>
+    //     <p> secure checkout </p>
+    //     <p> royalty points </p>
+    //     <p className='ml'> easy returns </p>
+    //   </div>
+
+    //   <div className='spfooterHold absolute'>
+    //     <SPFooter />
+    //   </div>
+
+    // </div>
   )
 }
 

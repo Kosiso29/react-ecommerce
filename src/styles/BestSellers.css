@@ -208,12 +208,12 @@
         flex-wrap: wrap !important;
     }
 
-    .chakra-accordion {
+    /* .chakra-accordion {
         top: -69rem !important;
         max-width: 100% !important;
         left: 52rem !important;
 
-    }
+    } */
 
     .spBtnHold {
         top: -73rem !important;
@@ -646,10 +646,10 @@ html{
 
     /* SINGLE PROD PAGE  */
 
-    .sinLih {
+    /* .sinLih {
         left: -12rem !important;
         background-color: #f8f9fc !important;
-    }
+    } */
 
     .sideImageHold {
         width: 6rem !important;
@@ -701,12 +701,12 @@ html{
 
     }
 
-    .chakra-accordion {
+    /* .chakra-accordion {
         top: 36rem !important;
         left: 0.7rem !important;
         width: 22rem !important;
 
-    }
+    } */
 
     .starHold {
         top: 18rem !important;

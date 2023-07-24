@@ -11,7 +11,7 @@ import {
 
 import aus from "../assets/aus.png";
 
-const SinglePageFAQ = ({ description }) => {
+const SinglePageFAQ = ({ description, reviewText, brand, discount}) => {
     return (
         <div>
 
@@ -25,6 +25,8 @@ const SinglePageFAQ = ({ description }) => {
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
+                    
+                    <AccordionPanel pb={4}>{discount} discount</AccordionPanel>
                     <AccordionPanel pb={4}>{ description }</AccordionPanel>
                 </AccordionItem>
 
@@ -32,13 +34,13 @@ const SinglePageFAQ = ({ description }) => {
                     <h2>
                         <AccordionButton>
                             <Box flex='1' textAlign='left'>
-                                HOW TO USE
+                                REVIEWS
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                        Close eyes, spray onto face and neck. Use throughout the day to refresh and hydrate dry skin.
+                        {reviewText}
 
 
                     </AccordionPanel>
@@ -48,13 +50,13 @@ const SinglePageFAQ = ({ description }) => {
                     <h2>
                         <AccordionButton>
                             <Box flex='1' textAlign='left'>
-                                THE INGREDIENTS
+                                BRAND
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                        Water (Aqua), Rosa Damascena Flower Water (Rose), Glycerin, Chamomilla Recutita (Matricaria) Flower Extract (Chamomile), Citric Acid, Phenoxyethanol.
+                        {brand}
 
                     </AccordionPanel>
                 </AccordionItem>

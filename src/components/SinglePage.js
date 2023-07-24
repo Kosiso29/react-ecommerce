@@ -65,7 +65,7 @@ const SinglePage = () => {
 
 //   const prodClicked = store.find((item) => item.id === id)
 
-  var { name, price, image: primaryImage, description, numReviews, rating} = prodClicked;
+  var { name, price, image: primaryImage, description, numReviews, rating, brand, discount} = prodClicked;
 
 
   let title = name;
@@ -120,7 +120,7 @@ const reviewText = numReviews !== null && numReviews !== undefined && numReviews
                 <div className='product-detail-cart'>
                     <div className='product-detail-header'>
                         <p className='font-semibold text-xl w-80'> {name} Bag </p>
-                        <p className='text-xl'> ₦{price} </p>
+                        <p className='text-xl'> ₦{price}</p>
                         <hr style={{width: "100%"}} />
                     </div>
                     <div className='product-detail-cart-button'>
@@ -137,7 +137,7 @@ const reviewText = numReviews !== null && numReviews !== undefined && numReviews
                         </div>
                     </div>
                     <div>
-                        <SinglePageFAQ description={description} />
+                        <SinglePageFAQ description={description} reviewText={reviewText} brand={brand} discount={discount}/>
                     </div>
                 </div>
             </div>

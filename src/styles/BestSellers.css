@@ -224,8 +224,8 @@
 
 
     .singleMainParentSlider {
-        position: absolute !important;
-        top: 73rem !important;
+        /* position: absolute !important;
+        top: 73rem !important; */
         max-width: 100vw !important;
         height: 50vh !important;
     }
@@ -732,9 +732,9 @@ html{
 
     .singleMainParentSlider {
         height: 10rem !important;
-        top: 44rem !important;
-        left: 1.5rem !important;
-        position: relative !important;
+        /* top: 44rem !important; */
+        /* left: 1.5rem !important; */
+        /* position: relative !important; */
     }
 
 

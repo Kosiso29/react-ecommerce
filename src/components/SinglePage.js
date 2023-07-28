@@ -65,7 +65,7 @@ const SinglePage = () => {
 
 //   const prodClicked = store.find((item) => item.id === id)
 
-  var { name, price, image: primaryImage, description, numReviews, rating, brand, discount} = prodClicked;
+  var { name, price, image: primaryImage, description, numReviews, rating, brand, discount, category } = prodClicked;
 
 
   let title = name;
@@ -140,6 +140,10 @@ const reviewText = numReviews !== null && numReviews !== undefined && numReviews
                         <SinglePageFAQ description={description} reviewText={reviewText} brand={brand} discount={discount}/>
                     </div>
                 </div>
+            </div>
+            <p className='fof text-4xl spText text-center'> YOU MAY ALSO LIKE </p>
+            <div className='auto-play-methods'>
+                {category ? <AutoPlayMethods category={category} /> : null}
             </div>
             <SPFooter />
       </div>

@@ -21,7 +21,7 @@ export default class AutoPlayMethods extends Component {
     
     async componentDidMount() {
         await new Promise((resolve, reject) => {
-            axios.get(`/products/?ordering=-rating&page_size=8`)
+            axios.get(`/products/products/productlist/category=${this.props.category}/?ordering=-ratings`)
                 .then(response => response.data)
                 .then(data => {
                     this.setState(prevState => prevState.items = data.results);
@@ -34,7 +34,7 @@ export default class AutoPlayMethods extends Component {
         const settings = {
             dots: false,
             infinite: true,
-            slidesToShow: 5,
+            slidesToShow: (this.state.items.length - 1) || 1,
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 1500,
@@ -60,7 +60,7 @@ export default class AutoPlayMethods extends Component {
                     {this.state?.items?.map((item) => {
                         return (
                             <Link to={`/${item.id}`} key={item.id}>
-                                <div key={item.id}>
+                                <div key={item.id} className="flex justify-center">
                                     <img src={item.image} className=" rounded-md w-48 spCaroImg" />
                                 </div>
                             </Link>

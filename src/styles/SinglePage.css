@@ -74,6 +74,10 @@
     height: 6rem;
 }
 
+.auto-play-methods {
+    margin: 4rem 0;
+}
+
 /********************
 --------------------------------------------------------------------------------------------------------------
 *********************/
@@ -167,8 +171,8 @@
 } */
 
 .singleMainParentSlider {
-    position: relative;
-    top: -65rem;
+    /* position: relative; */
+    /* top: -65rem; */
     box-shadow: 0px !important;
 
 }

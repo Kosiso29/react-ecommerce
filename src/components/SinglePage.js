@@ -53,6 +53,7 @@ const SinglePage = () => {
               .then(response => response.data)
               .then(data => {
                   SetProdClicked(data)
+                  window.scrollTo(0, 0)
                   resolve()
           }).catch(() => reject())
       })

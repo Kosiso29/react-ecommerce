@@ -21,35 +21,18 @@
     grid-area: image1;
     height: 10rem;
     width: auto;
-    background-color: blue;
 }
 
 .product-image-2 {
     grid-area: image2;
     height: 10rem;
     width: auto;
-    background-color: blue;
-}
-
-.product-image-3 {
-    grid-area: image3;
-    height: 10rem;
-    width: auto;
-    background-color: blue;
-}
-
-.product-image-4 {
-    grid-area: image4;
-    height: 10rem;
-    width: auto;
-    background-color: blue;
 }
 
 .product-image-main {
     grid-area: imageMain;
     width: auto;
     height: 20rem;
-    background-color: red;
     text-align: left;
 }
 
@@ -76,6 +59,52 @@
 
 .auto-play-methods {
     margin: 4rem 0;
+    max-height: 15rem;
+}
+
+@media(max-width:990px){
+
+    .product-detail {
+        width: calc(100% - 8rem);
+        margin: 5rem auto;
+        grid-template-columns: 1.5fr 3fr;
+        grid-template-rows: 10rem 10rem 1fr;
+        row-gap: 5rem;
+        column-gap: 1rem;
+        grid-template-areas:
+            "image1 imageMain"
+            "image2 imageMain"
+            "cart cart";
+    
+    }
+
+    .benefits {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media(max-width:600px){
+
+    .product-detail {
+        margin: 5rem auto 2rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: 20rem 1fr;
+        row-gap: 5rem;
+        column-gap: 1rem;
+        grid-template-areas:
+            "imageMain"
+            "cart";
+    
+    }
+
+    .product-image-1 {
+        display: none;
+    }
+
+    .product-image-2 {
+        display: none;
+    }
 }
 
 /********************

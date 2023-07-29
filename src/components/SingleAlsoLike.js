@@ -41,15 +41,9 @@ export default class AutoPlayMethods extends Component {
             arrows: false,
             responsive: [
                 {
-                    breakpoint: 991,
+                    breakpoint: 990,
                     settings: {
-                        slidesToShow: 3,
-                    }
-                },
-                {
-                    breakpoint: 767,
-                    settings: {
-                        slidesToShow: 2,
+                        slidesToShow: this.state.items.length > 2 ? 2 : 1,
                     }
                 }
             ]

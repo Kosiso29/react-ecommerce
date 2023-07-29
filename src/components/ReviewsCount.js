@@ -27,7 +27,7 @@ const Review1 = ({ reviews }) => {
             <hr />
 
             <div className='flex gap-5 justify-center flex-row fof my-12'>
-                <p className="text-gray-500 text-4xl font-semibold revSize"> {averageRating(reviews) / 2} </p>
+                <p className="text-gray-500 text-4xl font-semibold revSize"> {(averageRating(reviews) / 2) || 0} </p>
                 <div>
                     {setNumberOfStars(averageRating(reviews))}
                     <p className='starLine2'> {reviews.length} Reviews </p>

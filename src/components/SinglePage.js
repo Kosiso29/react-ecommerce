@@ -147,20 +147,20 @@ const reviewText = numReviews !== null && numReviews !== undefined && numReviews
 
             <Reviews id={id} />
             
-            <div className='flex justify-between mx-32 mb-8'>
-                <div className='flex flex-col w-52 h-32 items-center justify-center text-center uppercase'>
+            <div className='flex justify-between mx-32 mb-8 benefits'>
+                <div className='flex flex-col w-48 h-32 items-center justify-center text-center uppercase'>
                     <FaShippingFast className='w-16 h-20 sv' />
                     <p> 2 DAY DELIVERY </p>
                 </div>
-                <div className='flex flex-col w-52 h-32 items-center justify-center text-center uppercase'>
+                <div className='flex flex-col w-48 h-32 items-center justify-center text-center uppercase'>
                     <FaLock className='w-12 h-20 sv' />
                     <p> secure checkout </p>
                 </div>
-                <div className='flex flex-col w-52 h-32 items-center justify-center text-center uppercase'>
+                <div className='flex flex-col w-48 h-32 items-center justify-center text-center uppercase'>
                     <BsCurrencyDollar className='w-16 h-20 sv' />
                     <p> royalty points </p>
                 </div>
-                <div className='flex flex-col w-52 h-32 items-center justify-center text-center uppercase'>
+                <div className='flex flex-col w-48 h-32 items-center justify-center text-center uppercase'>
                     <GiCardboardBoxClosed className='w-16 h-20 sv' />
                     <p className='ml'> easy returns </p>
                 </div>

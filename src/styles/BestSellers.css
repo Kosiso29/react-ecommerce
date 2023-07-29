@@ -269,18 +269,6 @@
 
     }
 
-    .footerFeatures2 {
-        left: 6rem !important;
-    }
-
-    .footerFeatures2TextHold {
-        left: 11rem !important;
-        gap: 10rem !important;
-        font-size: 15px;
-        max-width: 100% !important;
-
-    }
-
     .ml {
         margin-left: 1rem !important;
     }
@@ -807,18 +795,6 @@ html{
         position: relative !important;
     }
 
-    .footerFeatures2 {
-
-        position: relative !important;
-        top: 155rem !important;
-        flex-direction: row;
-        gap: 9rem !important;
-        flex-wrap: wrap;
-        width: 17rem !important;
-        left: 3rem !important;
-
-    }
-
     .sv {
         width: 3.5rem !important;
         height: 3.5rem !important;
@@ -827,18 +803,6 @@ html{
     .sv2 {
         width: 2.5rem !important;
         height: 2.5rem !important;
-    }
-
-    .footerFeatures2TextHold {
-        font-style: italic !important;
-        position: relative !important;
-        top: 144rem !important;
-        gap: 5rem !important;
-        left: 2rem !important;
-        width: 36rem !important;
-        flex-wrap: wrap !important;
-        font-size: 13px !important;
-        row-gap: 11rem !important;
     }
 
     .spfooterHold {

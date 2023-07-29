@@ -13,7 +13,6 @@ import SinglePageFAQ from './SinglePageFAQ';
 import AutoPlayMethods from './SingleAlsoLike';
 import JournalSection from "./JournalSection"
 import SearchBox from './SearchBox';
-import Review1 from './Review1';
 
 import better from "../assets/better.jpeg";
 import { FaShippingFast } from "react-icons/fa";
@@ -145,6 +144,9 @@ const reviewText = numReviews !== null && numReviews !== undefined && numReviews
             <div className='auto-play-methods'>
                 {category ? <AutoPlayMethods category={category} /> : null}
             </div>
+
+            <SearchBox id={id} />
+            
             <div className='flex justify-between mx-32 mb-8'>
                 <div className='flex flex-col w-52 h-32 items-center justify-center text-center uppercase'>
                     <FaShippingFast className='w-16 h-20 sv' />

@@ -3,30 +3,38 @@ import { AiFillStar } from "react-icons/ai"
 import feel from "../assets/feel.png";
 
 
-const Review1 = (props) => {
-    const starCalc = props.starCalc;
-    const reviewes = props.rev;
-    const oneDigit = Math.floor(Math.random() * 10);
+const Review1 = ({ reviews }) => {
 
+    const setNumberOfStars = (rating) => {
+        const numberOfStars = Math.floor(rating / 2);
+        const numberOfStarsArray = Array.from({ length: numberOfStars }, (_, i) => i + 1);
+        
+        return (
+            <div className='flex'>
+                {numberOfStarsArray.map(() => <AiFillStar />)}
+            </div>
+        )
+    }
+
+    const averageRating = reviews => {
+        const sum = reviews.reduce((acc, num) => acc + num.rating, 0)
+        return sum / reviews.length
+      }
 
     return (
         <div>
 
-            <div className='feelHold relative'>
-            <img src={feel} className="feelImg" />
+            <hr />
+
+            <div className='flex gap-5 justify-center flex-row fof my-12'>
+                <p className="text-gray-500 text-4xl font-semibold revSize"> {averageRating(reviews) / 2} </p>
+                <div>
+                    {setNumberOfStars(averageRating(reviews))}
+                    <p className='starLine2'> {reviews.length} Reviews </p>
+                </div>
             </div>
 
-            <p className='revLine1 text-gray-300'> _____________________________________________________________________________________________________________________________________________________________________________________      </p>
-
-            <div className='starHold2 flex gap-5 justify-center flex-row fof'>
-                <p className="text-gray-500 text-4xl font-semibold revSize"> {starCalc}.{oneDigit} </p>
-                {starCalc === 1 ? <div className='flex fs30 starLine'>  <AiFillStar /> </div> : ""}
-                {starCalc === 2 ? <div className='flex fs30 starLine'> <AiFillStar /> <AiFillStar />  </div> : ""}
-                {starCalc === 3 ? <div className='flex fs30 starLine'> <AiFillStar /> <AiFillStar /> <AiFillStar />  </div> : ""}
-                {starCalc === 4 ? <div className='flex fs30 starLine'> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar />  </div> : ""}
-                {starCalc === 5 ? <div className='flex fs30 starLine'> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar /> <AiFillStar />  </div> : ""}
-                <p className='starLine2'> {reviewes} Reviews </p>
-            </div>
+            <hr />
 
         </div>
     )

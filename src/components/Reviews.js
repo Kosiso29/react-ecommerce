@@ -15,9 +15,10 @@ const Reviews = ({id, rating}) => {
 
   const getData = async (id) => {
       await new Promise((resolve, reject) => {
-          axios.get(`/ratings/list/?ordering=-createdAt&search=${id}`)
+          axios.get(`/ratings/list/?ordering=-createdAt&product=${id}`)
               .then(response => response.data)
               .then(data => {
+                  console.log('data', data, id);
                   SetReviews(data)
                   resolve()
           }).catch(() => reject())

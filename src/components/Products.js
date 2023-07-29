@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react'
 // import { store } from "../productsStore/Store";
+import { BiSearch } from "react-icons/bi"
+import { ImCancelCircle } from "react-icons/im"
 import OurBestSellers from './OurBestSellers';
 import Pagination from 'react-bootstrap/Pagination';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import axios from "../axios";
 
 const Products = () => {
     const [state, setState] = useState({ results: [] });
     const [activePageNumber, setActivePageNumber] = useState(1);
     const [pagesArray, setPagesArray] = useState([])
+    const [search, setSearch] = useState("");
+    const [products, setProducts] = useState({ results: [] });
 
     const getData = async (pageNumber) => {
         await new Promise((resolve, reject) => {
@@ -19,6 +26,7 @@ const Products = () => {
                         setPagesArray(newPagesArray)
                     }
                     setState(data)
+                    setProducts(data)
                     resolve()
             }).catch(() => reject())
         })
@@ -26,14 +34,59 @@ const Products = () => {
         setActivePageNumber(pageNumber || activePageNumber);
     }
 
+    const searchData = async () => {
+        await new Promise((resolve, reject) => {
+            axios.get(`/products/?ordering=-rating&search=${search}`)
+                .then(response => response.data)
+                .then(data => {
+                    setProducts(data);
+                    resolve()
+            }).catch(() => reject())
+        })
+    }
+
+    const onSearchClick = async (e) => {
+        if (e.key === "Enter") {
+            await searchData();
+        }
+    }
+
+    const onClearSearch = () => {
+        setSearch("");
+        setProducts(state);
+    }
+
     useEffect(() => {
         getData()
     }, [])
 
+    useEffect(() => {
+        if (!search) {
+            onClearSearch();
+        }
+    }, [search])
+
     return (
         <div>
+            <div className='flex flex-col gap-7 relative mx-32 mt-12'>
+            <p className='frText text-3xl relative fof'> Search Products </p>
+    
+                <div className='w-80'>
+
+                    <InputGroup>
+                    <Form.Control
+                        placeholder="Search"
+                        aria-label="Search Products"
+                        onChange={e => setSearch(e.target.value)} 
+                        onKeyDown={e => onSearchClick(e)}
+                    />
+                    <Button variant='info' onClick={searchData}><BiSearch /></Button>
+                    <Button variant='danger' onClick={onClearSearch}><ImCancelCircle /></Button>
+                    </InputGroup>
+                </div>
+            </div>
             <div className='ourBestSellersMainParent'>
-                {state?.results?.map(((item) => {
+                {products?.results?.map(((item) => {
                     return (
 
                         <OurBestSellers

@@ -121,7 +121,7 @@ const NavBar = () => {
 
                     </ul>
 
-                    <Link to="/cart" className='nav-link text-2xl text-right ml-10 relative left-24 zoom2' >
+                    <Link to="/cart" className='nav-link text-2xl text-right ml-10 relative zoom2' >
                         <img src={trolley} width='50px' alt='Cart' /><h1 className='cart-items-title'>cart<span className='cart-items-number'>{ numberOfItemsOnCart }</span></h1>
                     </Link>
                 </nav >
@@ -134,77 +134,4 @@ const NavBar = () => {
 }
 
 export default NavBar
-
-
-
-
-
-/*    
-
-
-
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-             <div class="container">
-                <div class="dropdown" onMouseOver={showHandler}>
-                    <button class="dropbtn">Dropdown</button>
-                    <div class="dropdown-content" onMouseLeave={dontShowHandler}>
-                     {show && <BestSellers /> }
-                    </div>
-                </div>
-
-                <div class="dropdown" onMouseOver={showHandler2}>
-                    <button class="dropbtn">Dropdown</button>
-                    <div class="dropdown-content" onMouseLeave={dontShowHandler}>
-                    {show2 && <GiftSets /> }
-                    </div>
-                </div>
-
-
-                <div class="dropdown">
-                    <button class="dropbtn">Dropdown</button>
-                    <div class="dropdown-content">
-                        Link 1
-                        Link 2
-                        Link 3
-                    </div>
-                </div>
-
-
-                <a href="#news">Link</a>
-            </div>
-
-            <h3>Dropdown Menu inside a Navigation Bar</h3>
-            <p>Hover over the "Dropdown" link to see the dropdown menu.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
 

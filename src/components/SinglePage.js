@@ -119,7 +119,7 @@ const reviewText = numReviews !== null && numReviews !== undefined && numReviews
                 <img src={image} className="product-image-main" alt="" />
                 <div className='product-detail-cart'>
                     <div className='product-detail-header'>
-                        <p className='font-semibold text-xl w-80'> {name} Bag </p>
+                        <p className='font-semibold text-xl w-80'> {name} </p>
                         <p className='text-xl'> ₦{price}</p>
                         <hr style={{width: "100%"}} />
                     </div>

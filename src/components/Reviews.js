@@ -18,7 +18,6 @@ const Reviews = ({id, rating}) => {
           axios.get(`/ratings/list/?ordering=-createdAt&product=${id}`)
               .then(response => response.data)
               .then(data => {
-                  console.log('data', data, id);
                   SetReviews(data)
                   resolve()
           }).catch(() => reject())
@@ -49,11 +48,11 @@ const Reviews = ({id, rating}) => {
         <ReviewsCount rating={rating} reviews={reviews} />
 
 
-      <div className='flex flex-col gap-7 relative mx-32 mt-12'>
-        <p className='frText text-3xl relative fof'> Filter Reviews </p>
+          {reviews.length > 0 ? <div className='flex flex-col gap-7 relative mx-32 mt-12'>
+              <p className='frText text-3xl relative fof'> Filter Reviews </p>
 
-        <input type="text" placeholder="Search" className='bg-light fof reviews relative text-black-400 pl-3' onChange={e => setSearch(e.target.value)} />
-      </div>
+              <input type="text" placeholder="Search" className='bg-light fof reviews relative text-black-400 pl-3' onChange={e => setSearch(e.target.value)} />
+          </div> : null}
 
 
       <div className='mx-48 my-12'>{reviews.map(review => {

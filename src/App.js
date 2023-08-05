@@ -18,7 +18,6 @@ import Products from './components/Products';
 import CartHold from './components/CartHold';
 import SPFooter from './components/SPFooter';
 import ProductCategory from './components/ProductCategory';
-import MobileNav from './components/MobileNav';
 import { useDispatch } from "react-redux";
 import { cartActions } from "./redux-state/CartState";
 
@@ -36,9 +35,9 @@ function App() {
             <BrowserRouter>
 
                 <Routes >
-                    <Route path='/' exact element={<>   <NavBar /> <MobileNav />  <SimpleSlider /> <HeroSection /> {/* <BsText /> */} <Ingridients /> {<Products />}  {/*<OurBestSellers /> <JournalSection />*/}   <FollowONIG /> <SPFooter />  </>} />
-                    <Route path='/:id' exact element={<> <NavBar /> <MobileNav />  <SinglePage /> </>} />
-                    <Route path='/journal/april' element={<> <NavBar /> <MobileNav />  <JournalPage /> </>} />
+                    <Route path='/' exact element={<>   <NavBar />  <SimpleSlider /> <HeroSection /> {/* <BsText /> */} <Ingridients /> {<Products />}  {/*<OurBestSellers /> <JournalSection />*/}   <FollowONIG /> <SPFooter />  </>} />
+                    <Route path='/:id' exact element={<> <NavBar />  <SinglePage /> </>} />
+                    <Route path='/journal/april' element={<> <NavBar />  <JournalPage /> </>} />
                     <Route path='/cart' exact element={<>  <NavBar /> <CartHold /></>} />
                     <Route path='/panel' element={<> <NavBar />  <ProductCategory
                         title="PANEL"

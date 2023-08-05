@@ -9,6 +9,10 @@ import { FaShoppingBag } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import trolley from "../assets/trolley.png";
 import { useSelector } from "react-redux";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const NavBar = () => {
     const [show, setShow] = useState(false);
@@ -67,17 +71,43 @@ const NavBar = () => {
 
     return (
         <div>
+            <header class="mobile-banner" role="banner">
+                <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary mobile-navbar">
+                <Container>
+                    <Navbar.Brand href="#home">
+                        <Link to="/">
+                            <img src={logo} className="w-36" alt='logo'/>
+                        </Link>        
+                    </Navbar.Brand>
+                    <Link to="/cart">
+                        <img src={trolley} width='50px' alt='Cart' /><h1 className='cart-items-title text-center'>CART<span className='cart-items-number'>{ numberOfItemsOnCart }</span></h1>
+                    </Link>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto">
+                        <NavDropdown title="Products" id="collasible-nav-dropdown">
+                        <NavDropdown.Item><Link to="/panel">Panel</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/battery">Battery</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/inverter">Inverter</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/controller">Controller</Link></NavDropdown.Item>
+                        </NavDropdown>
+                        <Nav.Link href="#pricing">Profile</Nav.Link>
+                    </Nav>
+                    </Navbar.Collapse>
+                </Container>
+                </Navbar>
+            </header>
 
 
             <header class="banner" role="banner">
 
-                <nav class="navigationBar" role="navigation" aria-label="menu">
+                <nav class="navigationBar flex justify-between px-24" role="navigation" aria-label="menu">
 
                     <Link to="/">
-                        <img src={logo} className="ml-32 img" alt='logo'/>
+                        <img src={logo} className="img" alt='logo'/>
                     </Link>
 
-                    <ul class="menuNav">
+                    <ul class="menuNav flex justify-between">
                         <li class="dropdown nav-link nav-link-fade-up transition-all duration-700" onMouseOver={showHandler} >
                             BEST SELLERS
                             {show && <div>

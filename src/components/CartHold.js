@@ -5,7 +5,6 @@ import CartPageFaq from './CartPageFaq';
 import CartPageFooter from './CartPageFooter';
 import CartTotal from './CartTotal';
 import EmptyCart from './EmptyCart';
-import MobileNav from './MobileNav';
 import SPFooter from './SPFooter';
 import YouMayAlsoLike from './YouMayAlsoLike';
 import "../styles/BestSellers.css";
@@ -21,7 +20,6 @@ const CartHold = () => {
 
     return (
         <div>
-            <MobileNav />
             {/*<p className=' font-bold text-2xl fof'>CART TOAL ${totalPrice} </p>*/}
             {cartLen === 0 ? <EmptyCart /> : <>
                 <div className=' flex flex-row relative gap-40 urCartItem'>

@@ -1,18 +1,8 @@
-.ingMainParent {
-    position: relative;
-    top: 11rem;
-}
-
 .ingTextHold {
     left: 2.5rem;
     position: relative;
     gap: 9rem;
     margin-top: 1rem;
-}
-
-.ingImgHold {
-    position: relative;
-    left: 2rem;
 }
 
 .zoom2{

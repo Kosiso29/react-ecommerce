@@ -75,14 +75,6 @@
         margin-right: 2rem !important;
     }
 
-    .ingMainParent {
-        top: 9rem !important;
-    }
-
-    .ingImgHold {
-        left: 0rem !important;
-    }
-
     .ingTextHold {
         left: 0rem !important;
     }
@@ -490,25 +482,9 @@ html{
 
     }
 
-    .ingMainParent {
-        top: 15rem !important;
-        position: absolute;
-        max-width: 100% !important;
-
-    }
-
     .ogtext {
         font-size: 30px !important;
         max-width: 100% !important;
-        max-width: 100% !important;
-
-    }
-
-    .ingImgHold {
-        display: flex;
-        flex-direction: column !important;
-        gap: 4rem !important;
-        left: 3rem !important;
         max-width: 100% !important;
 
     }

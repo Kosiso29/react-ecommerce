@@ -26,44 +26,35 @@ const Ingridients = () => {
   }, []);
 
   return (
-    <div className='ingMainParent'>
+    <div className='mx-24 my-36'>
       <p className='text-4xl ogtext font-medium text-center mb-16'>OUR PRODUCTS</p>
 
-      <div className='ingImgHold flex flex-row gap-36 justify-center'>
-        <div className="imageWithText">
-          <img src={ing1} className="zoom2" alt=''/>
+      <div className='flex flex-wrap gap-20 justify-center'>
+        <div className="flex flex-col items-center">
+          <img src={ing1} className="w-20 zoom2 mb-3" alt=''/>
           <p>{categories.length > 0 && categories[0].name}</p>
         </div>
-        <div className="imageWithText">
-          <img src={ing2} className="zoom2" alt=''/>
+        <div className="flex flex-col items-center">
+          <img src={ing2} className="w-20 zoom2 mb-3" alt=''/>
           <p>{categories.length > 1 && categories[1].name}</p>
         </div>
-        <div className="imageWithText">
-          <img src={ing3} className="zoom2" alt=''/>
+        <div className="flex flex-col items-center">
+          <img src={ing3} className="w-20 zoom2 mb-3" alt=''/>
           <p>{categories.length > 2 && categories[2].name}</p>
         </div>
-        <div className="imageWithText">
-          <img src={ing4} className="zoom2" alt=''/>
+        <div className="flex flex-col items-center">
+          <img src={ing4} className="w-20 zoom2 mb-3" alt=''/>
           <p>{categories.length > 3 && categories[3].name}</p>
         </div>
-        <div className="imageWithText">
-          <img src={ing5} className="zoom2" alt=''/>
+        <div className="flex flex-col items-center">
+          <img src={ing5} className="w-20 zoom2 mb-3" alt=''/>
           <p>{categories.length > 4 && categories[4].name}</p>
         </div>
-        <div className="imageWithText">
-          <img src={ing6} className="zoom2" alt=''/>
+        <div className="flex flex-col items-center">
+          <img src={ing6} className="w-20 zoom2 mb-3" alt=''/>
           <p>{categories.length > 5 && categories[5].name}</p>
         </div>
       </div>
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
   );
 }

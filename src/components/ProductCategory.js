@@ -111,19 +111,14 @@ const ProductCategory = ({ title, description, category_id, options }) => {
 
 
     return (
-        <div className='u20MainParent fof '>
-            <p className=' bg-white z-50 relative w100vw'>  </p>
+        <div className='fof '>
 
-            <div className='u20Hold'>
-                <img src={u20bg} className="u20Pic" />
+            <div className='product-category-hero'>
+                <p className='product-category-title'> {title} </p>
+                <p className='u20Desc text-center'> { description }</p>
             </div>
 
-            <div className='u20HeadingHold gap-20 justify-center relative flex flex-col'>
-                <p className='u20Heading'> {title} </p>
-                <p className='u20Desc'> { description }</p>
-            </div>
-
-            <div className='u20BreadCrumbHold absolute text-sm'>
+            <div className='flex items-center text-sm min-h-12 wrapper'>
                 <Breadcrumb spacing='8px' separator={<ChevronRightIcon />}>
                     <BreadcrumbItem>
                         <Link to={`/`}>Home</Link>
@@ -136,24 +131,22 @@ const ProductCategory = ({ title, description, category_id, options }) => {
                 </Breadcrumb>
             </div>
 
-            <div className='filterSortHold flex flex-row gap-8 absolute text-left'>
+            <div className='flex flex-row gap-8 mt-6 text-left wrapper'>
 
                 <img src={filterBtn} className=" w-36 cursor-pointer scale" onClick={filterShowHandler} />
-
-                {/*<img src={sortBtn} className=" w-36 cursor-pointer scale" onClick={toggleSortHandler} />*/}
             </div>
 
-            <div className='filterOptionsHold  relative'>
-                {filter && <div className='flex rounded-xl gap-8 flex-col boxSh fof absolute '>
+            <div className='relative'>
+                {filter && <div className='flex rounded-xl gap-8 flex-col boxSh fof absolute wrapper '>
                     {
                         Object.keys(dataObject)?.map(filterKey => {
                             if (filterKey === "All Products") {
                                 return null;
                             }
-                            return <p className='ml-12 scale cursor-pointer' onClick={() => { setCurrentFilterState(filterKey) }}> {filterKey} </p>
+                            return <p className='scale cursor-pointer text-center' onClick={() => { setCurrentFilterState(filterKey) }}> {filterKey} </p>
                         }).filter(data => data)
                     }
-                    <p className='ml-12 scale cursor-pointer text-white' onClick={() => { setCurrentFilterState("All Products") }}> All Products </p>
+                    <p className='scale cursor-pointer text-center text-white' onClick={() => { setCurrentFilterState("All Products") }}> All Products </p>
                     
 
                 </div>}
@@ -164,37 +157,31 @@ const ProductCategory = ({ title, description, category_id, options }) => {
             { /* ALL PRODUCTS */}
 
 
-            {<div className="flex u20prodsHold flex-wrap relative top-96 justify-center text-center">
+            {<div className="flex flex-wrap my-24 gap-16 justify-around text-center wrapper">
                 {dataObject[currentFilterState]?.map((item) => productList(item))}
             </div>
             }
-
-            <div className='u20Featyres relative'>
-
-                <div className='u20FeaturesHold flex flex-row relative'>
-                    <FaShippingFast className='w-16 h-20' />
-                    <FaLock className='w-12 h-16' />
-                    <BsCurrencyDollar className='w-16 h-20' />
-                    <img src={better} className="w-20" />
-                </div>
-
-                <div className='u20TextFeatureHold fof flex flex-row relative uppercase'>
+            
+            <div className='flex justify-between mx-32 mb-8 benefits'>
+                <div className='flex flex-col w-48 h-32 items-center justify-center text-center uppercase'>
+                    <FaShippingFast className='w-16 h-20 sv' />
                     <p> 2 DAY DELIVERY </p>
-                    <p> secure checkout </p>
-                    <p> royalty points </p>
-                    <p> easy returns </p>
                 </div>
-
+                <div className='flex flex-col w-48 h-32 items-center justify-center text-center uppercase'>
+                    <FaLock className='w-12 h-20 sv' />
+                    <p> secure checkout </p>
+                </div>
+                <div className='flex flex-col w-48 h-32 items-center justify-center text-center uppercase'>
+                    <BsCurrencyDollar className='w-16 h-20 sv' />
+                    <p> royalty points </p>
+                </div>
+                <div className='flex flex-col w-48 h-32 items-center justify-center text-center uppercase'>
+                    <img src={better} className="w-20" />
+                    <p className='ml'> easy returns </p>
+                </div>
             </div>
 
-            <div className='relative u20footer'>
-                <SPFooter />
-            </div>
-
-
-
-
-
+            <SPFooter />
         </div >
 
 

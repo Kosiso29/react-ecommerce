@@ -191,3 +191,19 @@
 .u20Js {
     top: 19rem;
 }
+
+@media (max-width: 990px) {
+
+    .product-category-title {
+        font-size: 3.5rem;
+    }
+    
+}
+
+@media (max-width: 400px) {
+
+    .product-category-title {
+        font-size: 2.5rem;
+    }
+    
+}

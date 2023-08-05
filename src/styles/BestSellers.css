@@ -7,6 +7,25 @@
     left: 4rem;
 }
 
+.cart-items {
+    display: grid;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 3rem;
+    grid-template-areas:
+        "list price";
+}
+
+.cart-items-list {
+    grid-area: list;
+}
+
+.cart-items-price {
+    grid-area: price
+}
+
 .emptyCartMainParent{
     height: 100rem;
 }
@@ -24,6 +43,22 @@
 
 
 /*   RESPONSIVE   */
+
+@media (max-width : 990px) {
+
+    .cart-items {
+        display: grid;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 1rem;
+        grid-template-areas:
+            "list"
+            "price";
+    }
+
+}
 
 @media (max-width : 1300px) {
 
@@ -283,22 +318,8 @@
 
     /*  CART     */
 
-    .urCartItem {
-        left: 9rem !important;
-    }
-
     .topLine {
         left: 10rem !important;
-    }
-
-    .cartProductsHold {
-        left: -10rem !important;
-    }
-
-    .cartTotalMainParent {
-        left: 46rem !important;
-        top: 14rem;
-
     }
 
 
@@ -677,27 +698,11 @@ html{
         visibility: visible !important;
     }
 
-
-    .urCartItem {
-        position: relative;
-        left: 2rem !important;
-        gap: 6rem !important;
-    }
-
     .topLine {
         left: 0rem !important;
     }
 
-    .cartProductsHold {
-        left: -18rem !important;
-    }
-
-    .cartImaegHold {
-        width: 10rem !important;
-    }
-
     .cartName {
-        top: -13.7rem;
         font-size: 14px !important;
         width: 8rem !important;
         white-space: inherit;
@@ -705,41 +710,8 @@ html{
 
     }
 
-    .cartPrice {
-        top: -12.5rem;
-        left: 33.5rem !important;
-    }
-
-    .qtyhChangehold {
-        top: -13.5rem;
-        max-width: 100% !important;
-        width: 9rem;
-        border-radius: 0;
-        left: 30.5rem;
-
-    }
-
     .middleLine {
         white-space: nowrap !important;
-    }
-
-    .mobHold {
-        position: relative !important;
-        left: 2rem !important;
-        top: 17rem !important;
-    }
-
-    .cartTotalMainParent {
-        position: relative !important;
-        left: 2rem !important;
-        top: 12rem !important;
-        width: 19rem !important;
-        max-width: 100% !important;
-
-    }
-
-    .mobDisappear {
-        display: none !important;
     }
 
     .mobTextSize {
@@ -766,7 +738,6 @@ html{
 
     .ctActualToatal {
         font-size: 19px;
-        left: 6rem !important;
     }
 
     .totLine2 {
@@ -777,31 +748,15 @@ html{
     .gpay-card-info-container.black,
     .gpay-card-info-animation-container.black {
         max-width: 100% !important;
-        width: 18rem !important;
+        width: 100% !important;
     }
 
-    .alsoLikeText {
-        margin-left: 3rem !important;
-        margin-right: 2rem !important;
-        left: 1rem !important;
-        top: 18rem !important;
-        font-size: 25px !important;
-    }
-
-    .youMay {
-        top: 20rem !important;
-        left: 1rem !important;
+    .google-pay-button-container {
+        display: block !important;
     }
 
     .brForMobile {
         border-radius: 5px !important;
-    }
-
-    .faqParent {
-        top: 25rem !important;
-        left: 1.4rem !important;
-        margin-left: 2rem !important;
-        margin-right: 2rem !important;
     }
 
     .styles_faq-row-wrapper__3vA1D h2 {

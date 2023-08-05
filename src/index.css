@@ -41,41 +41,6 @@ img {
     border: 1px solid #dddddd;
 }
 
-.cartName {
-    width: 13rem;
-    top: -14.4rem;
-    left: 31.5rem;
-    font-size: 17px !important;
-
-}
-
-.cartPrice {
-    width: 6rem;
-    top: -13rem;
-    left: 34.5rem;
-}
-
-.cartImaegHold {
-    left: 19rem;
-    top: -4rem;
-
-}
-
-.qtyhChangehold {
-    position: relative;
-    left: 31rem;
-    top: -12rem;
-    display: flex !important;
-    flex-direction: column !important;
-}
-
-.cartProductsHold {
-    top: 40rem !important;
-
-}
-
-/*  chnageing  "cartProductsHold" from 3 rem to 40rem  */
-
 
 
 .totLine {
@@ -93,11 +58,6 @@ img {
     left: 18rem;
 }
 
-.youMay {
-    top: 28.5rem !important;
-    position: relative !important;
-}
-
 .paypal-button::before {
     content: "PAY WITH PAYPAL" !important;
 }
@@ -106,29 +66,16 @@ img {
     content: "PAY WITH PAYPAL" !important;
 }
 
-.urCartItem {
-    left: 18rem;
-    top: 2rem;
-    gap: 23rem !important;
-}
-
 .lin {
     line-height: 3rem !important;
-}
-
-.mobHold{
-    position: relative !important;
 }
 
 .cartTotalMainParent {
     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
     background-color: white;
     border: 2px solid whitesmoke;
-    width: 28rem;
-    height: 37rem;
-    position: absolute !important;
-    left: 62rem;
-    top: 16rem;
+    max-width: 30rem;
+    height: fit-content;
     border-radius: 15px;
 }
 
@@ -137,13 +84,6 @@ img {
 .idk {
     top: 80rem !important;
     position: relative !important;
-}
-
-.chParent {
-
-    position: relative;
-    top: -30rem;
-    left: 0rem;
 }
 
 .calcHold {
@@ -160,11 +100,6 @@ img {
     width: 74% !important;
 }
 
-.ctActualToatal {
-    left: 10rem;
-    top: -4rem;
-}
-
 .licart {
     line-height: 5rem;
 }
@@ -179,20 +114,13 @@ img {
     width: 7rem;
 }
 
-
-.featHeadingHold {
-    top: -20rem;
-    left: 12rem;
-}
-
-.gpayHold {
-    position: relative;
-    top: -0.5rem;
-}
-
 .gpay-card-info-container.black,
 .gpay-card-info-animation-container.black {
     width: 27.4rem;
+}
+
+.google-pay-button-container {
+    display: block !important;
 }
 
 
@@ -227,12 +155,6 @@ img {
 /*  YOU MAY ALSO LIKE AUTO SCROLLING    */
 
 
-.alsoLikeText {
-    top: 27rem;
-    left: 29.5rem;
-    font-size: 45px !important;
-}
-
 .cpf{
     top: 39rem !important;
 }
@@ -242,13 +164,6 @@ img {
     -moz-box-shadow: 10px 10px 5px #ccc;
     -webkit-box-shadow: 10px 10px 5px #ccc;
     -khtml-box-shadow: 10px 10px 5px #ccc;
-}
-
-.faqParent {
-    top: 34rem;
-    right: -14rem;
-    width: 70vw;
-    position: relative !important;
 }
 
 
@@ -292,4 +207,14 @@ code {
 
 .slick-next:before {
     content: url("../src/assets/nf.png") !important;
+}
+
+@media (max-width: 600px) {
+
+    .cartTotalMainParent {
+        max-width: 85vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }

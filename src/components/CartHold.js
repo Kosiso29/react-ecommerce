@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import Cart from './Cart';
 import CartPageFaq from './CartPageFaq';
-import CartPageFooter from './CartPageFooter';
+// import CartPageFooter from './CartPageFooter';
 import CartTotal from './CartTotal';
 import EmptyCart from './EmptyCart';
 import SPFooter from './SPFooter';
@@ -22,43 +22,46 @@ const CartHold = () => {
         <div>
             {/*<p className=' font-bold text-2xl fof'>CART TOAL ${totalPrice} </p>*/}
             {cartLen === 0 ? <EmptyCart /> : <>
-                <div className=' flex flex-row relative gap-40 urCartItem'>
-                    <p className=' text-2xl'> Your Cart </p>
-                    <p className=' font-semibold fof lin text-xl'> {cartLen} items </p>
-                </div>
-
-
-
-
-                <div className='chParent'>
-                    {cartItems.map((item) => (
-
-                        <div className=''>
-
-                            <Cart
-                                key={item.id}
-                                item={{
-                                    id: item.id,
-                                    title: item.name,
-                                    quantity: item.quantity,
-                                    total: item.totalPrice,
-                                    price: item.price,
-                                    image: item.picture,
-                                    cartLength: cartItems.length,
-                                }}
-                            />
+                <div className='cart-items wrapper'>
+                    <div className='cart-items-list'>
+                        <div className=' flex justify-between'>
+                            <p className=' text-2xl'> Your Cart </p>
+                            <p className=' font-semibold fof lin text-xl'> {cartLen} items </p>
                         </div>
-                    ))}
+                        <hr />
+                        <div className=''>
+                            {cartItems.map((item) => (
+
+                                <div className=''>
+
+                                    <Cart
+                                        key={item.id}
+                                        item={{
+                                            id: item.id,
+                                            title: item.name,
+                                            quantity: item.quantity,
+                                            total: item.totalPrice,
+                                            price: item.price,
+                                            image: item.picture,
+                                            cartLength: cartItems.length,
+                                        }}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className='cart-items-price flex justify-center'>
+                        <CartTotal totalPr={totalPrice} />
+                    </div>
                 </div>
 
-                <CartTotal totalPr={totalPrice} />
 
 
-                <p className=' alsoLikeText relative fof text-4xl italic mb-10'> YOU MAY ALSO LIKE </p>
+                <p className='fof text-4xl italic mb-10 text-center'> YOU MAY ALSO LIKE </p>
                 <YouMayAlsoLike className="" />
                 <CartPageFaq />
 
-                <CartPageFooter />
+                <SPFooter />
             </>}
 
 

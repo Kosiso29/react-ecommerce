@@ -63,7 +63,7 @@ const config = {
 export default function CartPageFaq(){
 
     return (
-        <div className="faqParent fof text-4xl relative">
+        <div className="fof text-4xl my-24 wrapper">
             <Faq
                 data={data}
                 styles={styles}

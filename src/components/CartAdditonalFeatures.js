@@ -13,7 +13,7 @@ import { FaCcMastercard } from "react-icons/fa";
 
 const CartAdditonalFeatures = () => {
     return (
-        <div className='payemntIconHold flex gap-12 flex-row relative top-10'>
+        <div className='flex gap-12 flex-row'>
             <FaCcVisa className=' w-96 h-44' />
             <FaCcPaypal className=' w-96 h-44' />
             <FaCcMastercard className=' w-96 h-44' />

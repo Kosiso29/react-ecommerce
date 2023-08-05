@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import CartAdditonalFeatures from './CartAdditonalFeatures';
 import CartPageFaq from './CartPageFaq';
 import Features2 from './Features2';
+import Benefits from "./Benefits";
 import { useSelector } from 'react-redux';
 
 const CartTotal = (props) => {
@@ -23,40 +24,34 @@ const CartTotal = (props) => {
       });
 
     return (
-        <div className='cartTotalMainParent '>
-            <div className='flex flex-row gap-36 font-semibold text-2xl mt-8 mobTextSize gap6rem'>
-                <p className=' ml-14'> SUBTOTAL </p>
+        <div className='cartTotalMainParent p-3 mt-24'>
+            <div className='flex justify-center gap-36 font-semibold text-2xl mt-8 mobTextSize gap6rem'>
+                <p> SUBTOTAL </p>
                 <p> {formatter.format(Math.round(props.totalPr))} </p>
             </div>
-
-            <div className='headingHold mobTextSize2 mt-10 fof flex flex-col gap-12 relative ml-16 mr-4 font-medium text-xl'>
+            <div className='flex justify-center gap-48 font-medium text-xl mt-8 mobTextSize2 gap6rem'>
                 <p> SHIPPING </p>
-                <p> INCL, TAX  </p>
-            </div>
-
-            <div className='calcHold mobTextSize relative fof flex flex-col gap-12 font-medium text-xl'>
                 <p> ₦20 </p>
+            </div>
+            <div className='flex justify-center gap-48 font-medium text-xl mt-8 mobTextSize2 gap6rem mb-6'>
+                <p> INCL, TAX  </p>
                 <p> ₦15 </p>
             </div>
 
-            <div className=' relative totLine'>
-                <p className=' text-gray-300'> ________________________________________________________ </p>
+            <hr />
+
+            <div className='ctActualToatal fof text-xl text-center font-medium my-3'>
+                <p> TOTAL:  {formatter.format(Math.round(props.totalPr + 20 + 15))}</p>
             </div>
 
-            <div className='ctActualToatal fof text-xl font-medium relative'>
-                <p> TOATL:  {formatter.format(Math.round(props.totalPr + 20 + 15))}</p>
-            </div>
-
-            <div className=' relative totLine2'>
-                <p className=' text-gray-300'> ________________________________________________________ </p>
-            </div>
+            <hr />
 
 
 
-            <div className='gpayBtnHold flex justify-center'>
+            <div className='mt-12 mb-3'>
 
 
-                <GooglePayButton className='gpayHold' environment='TEST' paymentRequest={{
+                <GooglePayButton environment='TEST' paymentRequest={{
                     apiVersion: 2,
                     apiVersionMinor: 0,
                     allowedPaymentMethods: [
@@ -100,7 +95,7 @@ const CartTotal = (props) => {
                 />
             </div>
 
-            <div className='paypalHold'>
+            <div>
                 <PayPalScriptProvider>
                     <PayPalButtons aria-label='BUY WITH PAYPAL' createOrder={(data, actions) => {
                         return actions.order.create({
@@ -118,13 +113,13 @@ const CartTotal = (props) => {
                 </PayPalScriptProvider>
             </div>
 
-            {cartLen > 1 ? <div className='mobDisappear'>
+            {cartLen > 1 ? <div className=''>
 
-                <p className='relative fof text-2xl text-center top-9'> SECURELY CHCECKOUT WITH </p>
+                <p className='fof text-2xl text-center top-9'> SECURELY CHCECKOUT WITH </p>
 
                 <CartAdditonalFeatures />
 
-                {cartLen > 2 ? <Features2 /> : ""}
+                {cartLen > 2 ? <Benefits /> : ""}
 
             </div>
                 :

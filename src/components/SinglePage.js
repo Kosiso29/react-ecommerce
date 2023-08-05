@@ -94,10 +94,6 @@ const SinglePage = () => {
     SetImgChange(false)
   }
 
-
-  let numOfRev = Math.floor(Math.random() * (4 - 4 + 1)) + 4;
-  let reviews = Math.floor(Math.random() * (999 + 1) + 100);
-
   const averageRating = numReviews !== null && numReviews !== undefined && numReviews !== 0
   ? Math.floor(rating / numReviews)
   : 0;
@@ -110,13 +106,19 @@ const reviewText = numReviews !== null && numReviews !== undefined && numReviews
   
     return (
         <div>
-            <div className="bgGrey h-14 sinLih">
+            <div className="bgGrey min-h-14 sinLih">
                 <BreadCrumb name={title} />
             </div>
-            <div className='product-detail'>
-                <img src={image} className="product-image-1" alt="" />
-                <img src={image} className="product-image-2" alt="" />
-                <img src={image} className="product-image-main" alt="" />
+            <div className='product-detail wrapper'>
+                <div className="product-image-1 flex justify-center">
+                    <img src={image} alt="" />
+                </div>
+                <div className="product-image-2 flex justify-center">
+                    <img src={image} alt="" />
+                </div>
+                <div className="product-image-main flex justify-center">
+                    <img src={image} alt="" />
+                </div>
                 <div className='product-detail-cart'>
                     <div className='product-detail-header'>
                         <p className='font-semibold text-xl w-80'> {name} </p>
@@ -141,7 +143,7 @@ const reviewText = numReviews !== null && numReviews !== undefined && numReviews
                     </div>
                 </div>
             </div>
-            <p className='fof text-4xl spText text-center'> YOU MAY ALSO LIKE </p>
+            <p className='fof text-4xl text-center'> YOU MAY ALSO LIKE </p>
             <div className='auto-play-methods'>
                 {category ? <AutoPlayMethods category={category} /> : null}
             </div>

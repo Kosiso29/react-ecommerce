@@ -4,8 +4,8 @@
 
 .product-detail {
     display: grid;
-    width: calc(100% - 16rem);
-    margin: 5rem auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
     grid-template-columns: 1.5fr 3fr 50%;
     grid-template-rows: 10rem 10rem 1fr;
     row-gap: 1rem;
@@ -65,8 +65,6 @@
 @media(max-width:990px){
 
     .product-detail {
-        width: calc(100% - 8rem);
-        margin: 5rem auto;
         grid-template-columns: 1.5fr 3fr;
         grid-template-rows: 10rem 10rem 1fr;
         row-gap: 5rem;
@@ -223,11 +221,6 @@
 }
 
 
-
-.spText {
-    top: 66rem;
-    left: 35rem;
-}
 
 
 .spfooterHold {

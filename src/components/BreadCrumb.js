@@ -11,7 +11,7 @@ import {
 
 const BreadCrumb = (props) => {
     return (
-        <div className=' relative left-52 bgGrey'>
+        <div className='wrapper bgGrey'>
             <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='black' />}>
                 <BreadcrumbItem>
                     <Link to='/'>Home</Link>
@@ -22,7 +22,7 @@ const BreadCrumb = (props) => {
                 </BreadcrumbItem>
 
                 <BreadcrumbItem isCurrentPage>
-                    <Link to='#' className='  whitespace-nowrap text-sm'>{props.name}</Link>
+                    <Link to='#' className=' text-sm'>{props.name}</Link>
                 </BreadcrumbItem>
             </Breadcrumb>
         </div>

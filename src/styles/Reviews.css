@@ -1,7 +1,7 @@
 .reviews {
     background-color: transparent !important;
     border: 1px solid grey;
-    width: 20rem;
+    /* width: 20rem; */
     height: 2.1rem;
     outline: none;
 }

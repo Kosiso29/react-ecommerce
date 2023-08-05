@@ -361,12 +361,6 @@ html{
 
     }
 
-    .slick-prev {
-        left: -0.5rem !important;
-        position: absolute !important;
-
-    }
-
     .heroDescription {
         position: absolute !important;
         top: 24rem !important;
@@ -529,11 +523,6 @@ html{
 
     /* SINGLE PROD PAGE  */
 
-    /* .sinLih {
-        left: -12rem !important;
-        background-color: #f8f9fc !important;
-    } */
-
     .sideImageHold {
         width: 6rem !important;
         position: absolute !important;
@@ -620,16 +609,6 @@ html{
         /* position: relative !important; */
     }
 
-
-    .spText {
-        top: 40rem !important;
-        left: 0rem !important;
-        position: relative !important;
-        font-size: 26px;
-        max-width: 100% !important;
-
-    }
-
     .revLine1 {
 
         white-space: nowrap !important;
@@ -638,10 +617,6 @@ html{
 
     .frText {
         font-size: 27px !important;
-    }
-
-    .reviews {
-        width: 17rem !important;
     }
 
     .keyWordHold {

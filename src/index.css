@@ -278,13 +278,11 @@ code {
     left: 2rem !important;
     top: 19rem !important;
     z-index: 99999999;
-    width: 4rem !important;
 }
 
 .slick-next {
     right: 3.5rem !important;
-    /* z-index: 9999999999999999 !important; */
-    top: 19.7rem !important;
+    top: 19rem !important;
 
 }
 

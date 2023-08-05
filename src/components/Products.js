@@ -71,7 +71,7 @@ const Products = () => {
             <div className='flex flex-col gap-7 relative wrapper mt-12'>
             <p className='frText text-3xl relative fof'> Search Products </p>
     
-                <div className='w-80'>
+                <div className='max-w-lg'>
 
                     <InputGroup>
                     <Form.Control

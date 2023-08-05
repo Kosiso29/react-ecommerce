@@ -3,6 +3,10 @@
     margin-right: 6rem;
 }
 
+.footer {
+    width: unset;
+}
+
 @media (max-width : 990px) {
     .wrapper {
         margin-left: 3rem;

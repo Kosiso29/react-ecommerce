@@ -283,7 +283,7 @@ code {
 
 .slick-next {
     right: 3.5rem !important;
-    z-index: 9999999999999999 !important;
+    /* z-index: 9999999999999999 !important; */
     top: 19.7rem !important;
 
 }

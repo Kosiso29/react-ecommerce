@@ -26,7 +26,7 @@ const Ingridients = () => {
   }, []);
 
   return (
-    <div className='mx-24 my-36'>
+    <div className='wrapper my-36'>
       <p className='text-4xl ogtext font-medium text-center mb-16'>OUR PRODUCTS</p>
 
       <div className='flex flex-wrap gap-20 justify-center'>

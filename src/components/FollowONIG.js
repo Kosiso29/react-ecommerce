@@ -39,8 +39,8 @@ const FollowONIG = () => {
   };
 
   return (
-    <div className=' flex flex-row gap-28  mt-44 flex-wrap mb-36'>
-      <p className='igText '> FOLLOW US ON INSTAGRAM </p>
+    <div className='mt-24 mb-36'>
+      <p className='igText mb-12'> FOLLOW US ON INSTAGRAM </p>
 
       <div className='followOnInstaMarqueeConatiner'>
 

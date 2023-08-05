@@ -68,7 +68,7 @@ const Products = () => {
 
     return (
         <div>
-            <div className='flex flex-col gap-7 relative mx-32 mt-12'>
+            <div className='flex flex-col gap-7 relative wrapper mt-12'>
             <p className='frText text-3xl relative fof'> Search Products </p>
     
                 <div className='w-80'>

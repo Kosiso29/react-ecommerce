@@ -68,13 +68,6 @@
         height: 30rem;
     }
 
-    .ourBestSellersMainParent {
-        right: -2rem !important;
-        margin-top: 0 !important;
-        margin-left: 0rem !important;
-        margin-right: 2rem !important;
-    }
-
     .ingTextHold {
         left: 0rem !important;
     }
@@ -96,13 +89,6 @@
         left: 32rem !important;
         gap: 7rem !important;
         font-size: 15px;
-    }
-
-
-    .igText {
-        font-size: 2.4rem !important;
-        left: 23rem !important;
-        top: -3rem !important;
     }
 
 
@@ -375,32 +361,9 @@ html{
 
     }
 
-    .slick-prev,
-    .slick-next {
-        top: 5rem !important;
-        max-width: 100% !important;
-
-    }
-
     .slick-prev {
         left: -0.5rem !important;
         position: absolute !important;
-
-    }
-
-    .slick-next {
-        position: absolute !important;
-        left: 20.4rem !important;
-        top: 5.2rem !important;
-    }
-
-    .welcomStore {
-        margin-top: 0 !important;
-        position: absolute;
-        top: 19rem !important;
-        font-size: 25px;
-        left: 2.5rem !important;
-        max-width: 100% !important;
 
     }
 
@@ -450,16 +413,6 @@ html{
     }
 
 
-
-    .ourBestSellersMainParent {
-        position: absolute;
-        top: 8rem !important;
-        max-width: 100% !important;
-        left: 0.4rem !important;
-        right: 0 !important;
-        justify-content: center !important;
-
-    }
 
     .lh6 {
         top: 57rem !important;
@@ -548,20 +501,6 @@ html{
         max-width: 100% !important;
         font-weight: normal !important;
         gap: 1rem !important;
-    }
-
-    .igText {
-        position: absolute !important;
-        top: 577rem !important;
-        font-size: 25px !important;
-        white-space: nowrap;
-        left: 1.2rem !important;
-        max-width: 100% !important;
-    }
-
-    .fotBg {
-        position: absolute !important;
-        top: 614rem !important;
     }
 
     .alice-carousel {

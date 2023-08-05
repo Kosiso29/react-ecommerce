@@ -7,9 +7,9 @@ import three from "../assets/10_122764.png"
 
 const HeroSection = () => {
     return (
-        <div className='heroSecMainParent mx-24'>
+        <div className='heroSecMainParent wrapper'>
 
-            <p className='text-4xl mt-20 text-center welcomStore'> We sell inverter and inverter batteries, new and fairly used as well as solar products and equipments. </p>
+            <p className='text-4xl mt-20 text-center'> We sell inverter and inverter batteries, new and fairly used as well as solar products and equipments. </p>
             <div className='flex flex-wrap justify-around mt-20'>
                 <div className='flex flex-wrap justify-between mx-3 my-6'>
                     <img src={one} className=" w-20" alt='' />

@@ -256,12 +256,6 @@
 }
 
 @media(max-width:620px){
-    
-    .followOnInstaMarqueeConatiner{
-        top: -33rem;
-        position: relative;
-
-    }
 
     .overlay{
         --gradient-color: transparent !important;

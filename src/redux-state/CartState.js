@@ -6,6 +6,7 @@ const cartSlice = createSlice({
     initialState: {
         items: [],
         totalQuantity: 0,
+        search: "",
         // placeholder: []
     },
     reducers: {
@@ -49,6 +50,13 @@ const cartSlice = createSlice({
             let items = localStorage.getItem('items');
             if (items) {
                 state.items = JSON.parse(items);
+            }
+        },
+
+        updateSearch(state, action) {
+            const search = action.payload;
+            if (search) {
+                state.search = search;
             }
         },
     }

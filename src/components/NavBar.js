@@ -13,8 +13,9 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Search from "./Search";
 
-const NavBar = () => {
+const NavBar = ({ noSearch }) => {
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
     const [show3, setShow3] = useState(false);
@@ -80,7 +81,7 @@ const NavBar = () => {
                         </Link>        
                     </Navbar.Brand>
                     <Link to="/cart">
-                        <img src={trolley} width='50px' alt='Cart' /><h1 className='cart-items-title text-center'>CART<span className='cart-items-number'>{ numberOfItemsOnCart }</span></h1>
+                        <img src={trolley} width='30px' alt='Cart' /><h1 className='cart-items-title text-center'>CART<span className='cart-items-number'>{ numberOfItemsOnCart }</span></h1>
                     </Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
@@ -101,62 +102,68 @@ const NavBar = () => {
 
             <header class="banner" role="banner">
 
-                <nav class="navigationBar flex justify-between px-24" role="navigation" aria-label="menu">
+                <div className='navSearch'>
+                    <nav class="navigationBar flex justify-between px-24" role="navigation" aria-label="menu">
 
-                    <Link to="/">
-                        <img src={logo} className="img" alt='logo'/>
-                    </Link>
+                        <Link to="/">
+                            <img src={logo} className="img" alt='logo'/>
+                        </Link>
 
-                    <ul class="menuNav flex justify-between">
-                        <li class="dropdown nav-link nav-link-fade-up transition-all duration-700" onMouseOver={showHandler} >
-                            BEST SELLERS
-                            {show && <div>
-                                <ul class="dropdown-nav" onMouseLeave={dontShowHandler} >
+                        <ul class="menuNav flex justify-between">
+                            <li class="dropdown nav-link nav-link-fade-up transition-all duration-700" onMouseOver={showHandler} >
+                                BEST SELLERS
+                                {show && <div>
+                                    <ul class="dropdown-nav" onMouseLeave={dontShowHandler} >
 
-                                    <BestSellers > </BestSellers>
+                                        <BestSellers > </BestSellers>
 
-                                </ul>
+                                    </ul>
 
-                            </div>}
+                                </div>}
 
-                        </li >
-
-
-                        <li class="dropdown nav-link nav-link-fade-up" onMouseOver={showHandler2} >
-                            PRODUCTS
-                            {show2 && <ul class="dropdown-nav dropdown-nav2" onMouseLeave={dontShowHandler}>
-                                <GiftSets />
-                            </ul>}
-
-                        </li>
+                            </li >
 
 
-                        <li class="dropdown nav-link nav-link-fade-up" onMouseOver={showHandler3} >
-                            QUICK FILTER
-                            {show3 && <ul class="dropdown-nav dropdown-nav3" onMouseLeave={dontShowHandler}>
-                                <Body />
-                            </ul>}
+                            <li class="dropdown nav-link nav-link-fade-up" onMouseOver={showHandler2} >
+                                PRODUCTS
+                                {show2 && <ul class="dropdown-nav dropdown-nav2" onMouseLeave={dontShowHandler}>
+                                    <GiftSets />
+                                </ul>}
 
-                        </li>
-                        <li class="dropdown nav-link nav-link-fade-up"git  onMouseOver={showHandler3} >
-                            PROFILE
-                            {/* {show3 && <ul class="dropdown-nav dropdown-nav3" onMouseLeave={dontShowHandler}>
-                                <Body />
-                            </ul>} */}
-
-                        </li>
+                            </li>
 
 
-                        {/* <p className='navLine absolute bg-red-600 w-1 font-extralight h-9 z-50'>  </p> */}
+                            <li class="dropdown nav-link nav-link-fade-up" onMouseOver={showHandler3} >
+                                QUICK FILTER
+                                {show3 && <ul class="dropdown-nav dropdown-nav3" onMouseLeave={dontShowHandler}>
+                                    <Body />
+                                </ul>}
 
-                    </ul>
+                            </li>
+                            <li class="dropdown nav-link nav-link-fade-up"git  onMouseOver={showHandler3} >
+                                PROFILE
+                                {/* {show3 && <ul class="dropdown-nav dropdown-nav3" onMouseLeave={dontShowHandler}>
+                                    <Body />
+                                </ul>} */}
 
-                    <Link to="/cart" className='nav-link text-2xl text-right ml-10 relative zoom2' >
-                        <img src={trolley} width='50px' alt='Cart' /><h1 className='cart-items-title'>cart<span className='cart-items-number'>{ numberOfItemsOnCart }</span></h1>
-                    </Link>
-                </nav >
+                            </li>
+
+
+                            {/* <p className='navLine absolute bg-red-600 w-1 font-extralight h-9 z-50'>  </p> */}
+
+                        </ul>
+
+                        <Link to="/cart" className='nav-link text-2xl text-right ml-10 relative zoom2' >
+                            <img src={trolley} width='50px' alt='Cart' /><h1 className='cart-items-title'>cart<span className='cart-items-number'>{ numberOfItemsOnCart }</span></h1>
+                        </Link>
+                    </nav >
+                    {
+                        noSearch ? null : <div className='searchBar flex justify-center px-24 pb-3 pt-1 bg-white'>
+                            <Search />
+                        </div>
+                    }
+                </div>
             </header >
-
 
 
         </div >

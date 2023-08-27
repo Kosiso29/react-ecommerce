@@ -20,6 +20,7 @@ import SPFooter from './components/SPFooter';
 import ProductCategory from './components/ProductCategory';
 import { useDispatch } from "react-redux";
 import { cartActions } from "./redux-state/CartState";
+import LandingPage from "./components/LandingPage";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -35,10 +36,11 @@ function App() {
             <BrowserRouter>
 
                 <Routes >
-                    <Route path='/' exact element={<>   <NavBar />  <SimpleSlider /> <HeroSection /> {/* <BsText /> */} <Ingridients /> {<Products />}  {/*<OurBestSellers /> <JournalSection />*/}   <FollowONIG /> <SPFooter />  </>} />
+                    <Route path='/' exact element={<>   <LandingPage />  </>} />
                     <Route path='/:id' exact element={<> <NavBar />  <SinglePage /> </>} />
                     <Route path='/journal/april' element={<> <NavBar />  <JournalPage /> </>} />
                     <Route path='/cart' exact element={<>  <NavBar /> <CartHold /></>} />
+                    <Route path='/products' exact element={<> <NavBar noSearch={true} /> <Products /> <SPFooter /> </>} />
                     <Route path='/panel' element={<> <NavBar />  <ProductCategory
                         title="PANEL"
                         description="Unleash the power of the sun with solar panels, illuminating a sustainable future."

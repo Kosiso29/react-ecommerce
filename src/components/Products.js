@@ -6,16 +6,19 @@ import OurBestSellers from './OurBestSellers';
 import Pagination from 'react-bootstrap/Pagination';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Spinner from 'react-bootstrap/Spinner';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useSelector } from 'react-redux';
 import { useDispatch } from "react-redux";
 import { cartActions } from "../redux-state/CartState";
+import noItemFound from "../assets/noItemFound.jpeg";
 import axios from "../axios";
 
 const Products = () => {
 
     const globalSearch = useSelector((state) => state.cart.search);
     const [state, setState] = useState({ results: [] });
+    const [loading, setLoading] = useState(false);
     const [activePageNumber, setActivePageNumber] = useState(1);
     const [pagesArray, setPagesArray] = useState([])
     const [search, setSearch] = useState(globalSearch);
@@ -24,6 +27,7 @@ const Products = () => {
     const dispatch = useDispatch();
 
     const getData = async (pageNumber) => {
+        setLoading(true);
         await new Promise((resolve, reject) => {
             axios.get(`/products/?page=${pageNumber || activePageNumber}`)
                 .then(response => response.data)
@@ -36,6 +40,7 @@ const Products = () => {
                     if (!search) {
                         setProducts(data)
                     }
+                    setLoading(false);
                     resolve()
             }).catch(() => reject())
         })
@@ -44,11 +49,13 @@ const Products = () => {
     }
 
     const searchData = async () => {
+        setLoading(true);
         await new Promise((resolve, reject) => {
             axios.get(`/products/?ordering=-rating&search=${search}`)
                 .then(response => response.data)
                 .then(data => {
                     setProducts(data);
+                    setLoading(false);
                     resolve()
             }).catch(() => reject())
         })
@@ -101,7 +108,11 @@ const Products = () => {
                 </div>
             </div>
             <div className='ourBestSellersMainParent'>
-                {products?.results?.map(((item) => {
+                {loading ? <div> <Spinner className='w-40 mt-20' animation="border" variant="danger" /> </div> : products.results.length === 0
+                    ? <div>
+                        <img className='flex justify-center' src={noItemFound} alt='no item found' />
+                    </div>
+                    : products?.results?.map(((item) => {
                     return (
 
                         <OurBestSellers

@@ -50,6 +50,12 @@
     border: solid 1px #dc3545;
 }
 
+.spinner-border {
+    width: 10rem !important; 
+    height: 10rem !important;
+    border-width: 1rem !important;
+}
+
 :root{
     --p: 293 194% 8% !important;
     --pf: 293 194% 8%  !important;

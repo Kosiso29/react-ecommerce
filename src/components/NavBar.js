@@ -73,30 +73,37 @@ const NavBar = ({ noSearch }) => {
     return (
         <div>
             <header class="mobile-banner" role="banner">
-                <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary mobile-navbar">
-                <Container>
-                    <Navbar.Brand href="#home">
-                        <Link to="/">
-                            <img src={logo} className="w-36" alt='logo'/>
-                        </Link>        
-                    </Navbar.Brand>
-                    <Link to="/cart">
-                        <img src={trolley} width='30px' alt='Cart' /><h1 className='cart-items-title text-center'>CART<span className='cart-items-number'>{ numberOfItemsOnCart }</span></h1>
-                    </Link>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                        <NavDropdown title="Products" id="collasible-nav-dropdown">
-                        <NavDropdown.Item><Link to="/panel">Panel</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to="/battery">Battery</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to="/inverter">Inverter</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to="/controller">Controller</Link></NavDropdown.Item>
-                        </NavDropdown>
-                        <Nav.Link href="#pricing">Profile</Nav.Link>
-                    </Nav>
-                    </Navbar.Collapse>
-                </Container>
-                </Navbar>
+                <div className='navSearch'>    
+                    <Navbar collapseOnSelect expand="lg" className="bg-white mobile-navbar">
+                    <Container>
+                        <Navbar.Brand href="#home">
+                            <Link to="/">
+                                <img src={logo} className="w-36" alt='logo'/>
+                            </Link>        
+                        </Navbar.Brand>
+                        <Link to="/cart">
+                            <img src={trolley} width='30px' alt='Cart' /><h1 className='cart-items-title text-center'>CART<span className='cart-items-number'>{ numberOfItemsOnCart }</span></h1>
+                        </Link>
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="me-auto">
+                            <NavDropdown title="Products" id="collasible-nav-dropdown">
+                            <NavDropdown.Item><Link to="/panel">Panel</Link></NavDropdown.Item>
+                            <NavDropdown.Item><Link to="/battery">Battery</Link></NavDropdown.Item>
+                            <NavDropdown.Item><Link to="/inverter">Inverter</Link></NavDropdown.Item>
+                            <NavDropdown.Item><Link to="/controller">Controller</Link></NavDropdown.Item>
+                            </NavDropdown>
+                            <Nav.Link href="#pricing">Profile</Nav.Link>
+                        </Nav>
+                        </Navbar.Collapse>
+                    </Container>
+                    </Navbar>
+                    {
+                        noSearch ? null : <div className='flex justify-center pb-3 pt-1 bg-white'>
+                            <Search />
+                        </div>
+                    }
+                </div>
             </header>
 
 
@@ -158,7 +165,7 @@ const NavBar = ({ noSearch }) => {
                         </Link>
                     </nav >
                     {
-                        noSearch ? null : <div className='searchBar flex justify-center px-24 pb-3 pt-1 bg-white'>
+                        noSearch ? null : <div className='flex justify-center px-24 pb-3 pt-1 bg-white'>
                             <Search />
                         </div>
                     }

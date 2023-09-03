@@ -31,7 +31,7 @@ const Search = () => {
 
     return (
         <>
-            <div className='w-3/4'>
+            <div className='searchBar'>
 
                 <InputGroup>
                 <Form.Control

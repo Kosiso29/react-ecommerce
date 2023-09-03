@@ -33,7 +33,9 @@ const Products = () => {
                         setPagesArray(newPagesArray)
                     }
                     setState(data)
-                    setProducts(data)
+                    if (!search) {
+                        setProducts(data)
+                    }
                     resolve()
             }).catch(() => reject())
         })
